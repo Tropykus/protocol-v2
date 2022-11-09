@@ -1,4 +1,3 @@
-import { saveArtifact } from '@nomiclabs/buidler/plugins';
 import { oneRay, ZERO_ADDRESS } from '../../helpers/constants';
 import { IAaveConfiguration, eEthereumNetwork } from '../../helpers/types';
 
@@ -25,15 +24,16 @@ import {
   strategyYFI,
   strategyXSUSHI,
   strategyENJ,
+  strategyCOP
 } from './reservesConfigs';
 
 // ----------------
 // POOL--SPECIFIC PARAMS
 // ----------------
 
-export const AaveConfig: IAaveConfiguration = {
+export const TropykusConfig: IAaveConfiguration = {
   ...CommonsConfig,
-  MarketId: 'Aave genesis market',
+  MarketId: 'Tropykus market',
   ProviderId: 1,
   ReservesConfig: {
     AAVE: strategyAAVE,
@@ -57,7 +57,7 @@ export const AaveConfig: IAaveConfiguration = {
     YFI: strategyYFI,
     ZRX: strategyZRX,
     xSUSHI: strategyXSUSHI,
-    COP: strategyBUSD //TODO: Delete this
+    COP: strategyCOP
   },
   ReserveAssets: {
     [eEthereumNetwork.goerli]: {},
@@ -157,4 +157,4 @@ export const AaveConfig: IAaveConfiguration = {
   },
 };
 
-export default AaveConfig;
+export default TropykusConfig;
