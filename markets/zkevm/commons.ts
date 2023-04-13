@@ -7,7 +7,7 @@ import {
   MOCK_CHAINLINK_AGGREGATORS_PRICES,
   oneUsd,
 } from '../../helpers/constants';
-import { ICommonConfiguration, eAvalancheNetwork } from '../../helpers/types';
+import { ICommonConfiguration, eZKevmNetwork } from '../../helpers/types';
 
 // ----------------
 // PROTOCOL GLOBAL PARAMS
@@ -15,9 +15,9 @@ import { ICommonConfiguration, eAvalancheNetwork } from '../../helpers/types';
 
 export const CommonsConfig: ICommonConfiguration = {
   MarketId: 'Commons',
-  ATokenNamePrefix: 'Aave Avalanche Market',
-  StableDebtTokenNamePrefix: 'Aave Avalanche Market stable debt',
-  VariableDebtTokenNamePrefix: 'Aave Avalanche Market variable debt',
+  ATokenNamePrefix: 'Aave zk EVM Market',
+  StableDebtTokenNamePrefix: 'Aave zk EVM Market stable debt',
+  VariableDebtTokenNamePrefix: 'Aave zk EVM Market variable debt',
   SymbolPrefix: 'v',
   ProviderId: 0, // Overriden in index.ts
   OracleQuoteCurrency: 'USD',
@@ -70,57 +70,57 @@ export const CommonsConfig: ICommonConfiguration = {
 
   // If PoolAdmin/emergencyAdmin is set, will take priority over PoolAdminIndex/emergencyAdminIndex
   PoolAdmin: {
-    [eAvalancheNetwork.avalanche]: undefined,
-    [eAvalancheNetwork.fuji]: undefined,
+    [eZKevmNetwork.mainnet]: undefined,
+    [eZKevmNetwork.testnet]: undefined,
   },
   PoolAdminIndex: 0,
   EmergencyAdminIndex: 0,
   EmergencyAdmin: {
-    [eAvalancheNetwork.avalanche]: undefined,
-    [eAvalancheNetwork.fuji]: undefined,
+    [eZKevmNetwork.mainnet]: undefined,
+    [eZKevmNetwork.testnet]: undefined,
   },
   ProviderRegistry: {
-    [eAvalancheNetwork.avalanche]: '',
-    [eAvalancheNetwork.fuji]: '0x06eC0BDC3997EE32Cb5B66a1B9C11d92e2C27Aab',
+    [eZKevmNetwork.mainnet]: '',
+    [eZKevmNetwork.testnet]: '0x06eC0BDC3997EE32Cb5B66a1B9C11d92e2C27Aab',
   },
   ProviderRegistryOwner: {
-    [eAvalancheNetwork.avalanche]: '',
-    [eAvalancheNetwork.fuji]: '0x1128d177BdaA74Ae68EB06e693f4CbA6BF427a5e',
+    [eZKevmNetwork.mainnet]: '',
+    [eZKevmNetwork.testnet]: '0x1128d177BdaA74Ae68EB06e693f4CbA6BF427a5e',
   },
   LendingRateOracle: {
-    [eAvalancheNetwork.avalanche]: '',
-    [eAvalancheNetwork.fuji]: '0xEbBD998B7Dc2a8E675F0859d907c8Fa6027aBc7b',
+    [eZKevmNetwork.mainnet]: '',
+    [eZKevmNetwork.testnet]: '0xEbBD998B7Dc2a8E675F0859d907c8Fa6027aBc7b',
   },
   LendingPoolCollateralManager: {
-    [eAvalancheNetwork.avalanche]: '',
-    [eAvalancheNetwork.fuji]: '0x6242bE2fB5591FA1e81a99e6DD55Ff667fa82a71',
+    [eZKevmNetwork.mainnet]: '',
+    [eZKevmNetwork.testnet]: '0x6242bE2fB5591FA1e81a99e6DD55Ff667fa82a71',
   },
   LendingPoolConfigurator: {
-    [eAvalancheNetwork.avalanche]: '',
-    [eAvalancheNetwork.fuji]: '',
+    [eZKevmNetwork.mainnet]: '',
+    [eZKevmNetwork.testnet]: '',
   },
   LendingPool: {
-    [eAvalancheNetwork.avalanche]: '',
-    [eAvalancheNetwork.fuji]: '0x5f3968A2E41C95A95329333d44AB989de6c43f8E',
+    [eZKevmNetwork.mainnet]: '',
+    [eZKevmNetwork.testnet]: '0x5f3968A2E41C95A95329333d44AB989de6c43f8E',
   },
   WethGateway: {
-    [eAvalancheNetwork.avalanche]: '',
-    [eAvalancheNetwork.fuji]: '0x62AF6258d26838f33BADFbb33cf1De8FaB8EB19f',
+    [eZKevmNetwork.mainnet]: '',
+    [eZKevmNetwork.testnet]: '0x62AF6258d26838f33BADFbb33cf1De8FaB8EB19f',
   },
   TokenDistributor: {
-    [eAvalancheNetwork.avalanche]: '',
-    [eAvalancheNetwork.fuji]: '',
+    [eZKevmNetwork.mainnet]: '',
+    [eZKevmNetwork.testnet]: '',
   },
   AaveOracle: {
-    [eAvalancheNetwork.avalanche]: '',
-    [eAvalancheNetwork.fuji]: '0xD217DdD9f0Af84644dEFe84a0b634621D4617a29',
+    [eZKevmNetwork.mainnet]: '',
+    [eZKevmNetwork.testnet]: '0xD217DdD9f0Af84644dEFe84a0b634621D4617a29',
   },
   FallbackOracle: {
-    [eAvalancheNetwork.avalanche]: ZERO_ADDRESS,
-    [eAvalancheNetwork.fuji]: ZERO_ADDRESS,
+    [eZKevmNetwork.mainnet]: ZERO_ADDRESS,
+    [eZKevmNetwork.testnet]: ZERO_ADDRESS,
   },
   ChainlinkAggregator: {
-    [eAvalancheNetwork.avalanche]: {
+    [eZKevmNetwork.mainnet]: {
       WETH: '0x976B3D034E162d8bD72D6b9C989d545b839003b0',
       DAI: '0x51D7180edA2260cc4F6e4EebB82FEF5c3c2B8300',
       USDC: '0xF096872672F44d6EBA71458D74fe67F9a77a23B9',
@@ -129,7 +129,7 @@ export const CommonsConfig: ICommonConfiguration = {
       WBTC: '0x2779D32d5166BAaa2B2b658333bA7e6Ec0C65743',
       WAVAX: '0x0A77230d17318075983913bC2145DB16C7366156',
     },
-    [eAvalancheNetwork.fuji]: {
+    [eZKevmNetwork.testnet]: {
       WETH: '0x86d67c3D38D2bCeE722E601025C25a575021c6EA',
       USDT: '0x7898AcCC83587C3C55116c5230C17a6Cd9C71bad',
       WBTC: '0x31CF013A08c6Ac228C94551d535d5BAfE19c602a',
@@ -138,28 +138,28 @@ export const CommonsConfig: ICommonConfiguration = {
     },
   },
   ReserveAssets: {
-    [eAvalancheNetwork.avalanche]: {},
-    [eAvalancheNetwork.fuji]: {},
+    [eZKevmNetwork.mainnet]: {},
+    [eZKevmNetwork.testnet]: {},
   },
   ReservesConfig: {},
   ATokenDomainSeparator: {
-    [eAvalancheNetwork.avalanche]: '',
-    [eAvalancheNetwork.fuji]: '',
+    [eZKevmNetwork.mainnet]: '',
+    [eZKevmNetwork.testnet]: '',
   },
   WETH: {
-    [eAvalancheNetwork.avalanche]: '',
-    [eAvalancheNetwork.fuji]: '',
+    [eZKevmNetwork.mainnet]: '',
+    [eZKevmNetwork.testnet]: '',
   },
   WrappedNativeToken: {
-    [eAvalancheNetwork.avalanche]: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7', // Official WAVAX
-    [eAvalancheNetwork.fuji]: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c', // Official WAVAX
+    [eZKevmNetwork.mainnet]: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7', // Official WAVAX
+    [eZKevmNetwork.testnet]: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c', // Official WAVAX
   },
   ReserveFactorTreasuryAddress: {
-    [eAvalancheNetwork.avalanche]: '0x467b92aF281d14cB6809913AD016a607b5ba8A36',
-    [eAvalancheNetwork.fuji]: '0xB45F5C501A22288dfdb897e5f73E189597e09288', // Self-controlled EOA for testing
+    [eZKevmNetwork.mainnet]: '0x467b92aF281d14cB6809913AD016a607b5ba8A36',
+    [eZKevmNetwork.testnet]: '0xB45F5C501A22288dfdb897e5f73E189597e09288', // Self-controlled EOA for testing
   },
   IncentivesController: {
-    [eAvalancheNetwork.avalanche]: '0x01D83Fe6A10D2f2B7AF17034343746188272cAc9',
-    [eAvalancheNetwork.fuji]: '0xa1EF206fb9a8D8186157FC817fCddcC47727ED55',
+    [eZKevmNetwork.mainnet]: '0x01D83Fe6A10D2f2B7AF17034343746188272cAc9',
+    [eZKevmNetwork.testnet]: '0xa1EF206fb9a8D8186157FC817fCddcC47727ED55',
   },
 };

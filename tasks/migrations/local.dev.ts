@@ -6,7 +6,7 @@ import { printContracts } from '../../helpers/misc-utils';
 task('local:dev', 'Deploy development enviroment')
   .addFlag('verify', 'Verify contracts at Etherscan')
   .setAction(async ({ verify }, DRE) => {
-    const POOL_NAME = ConfigNames.Aave;
+    const POOL_NAME = ConfigNames.ZKevm;
 
     await DRE.run('set-DRE');
 

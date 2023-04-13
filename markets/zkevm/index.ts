@@ -1,35 +1,27 @@
-import { eAvalancheNetwork, IAvalancheConfiguration } from '../../helpers/types';
+import { eZKevmNetwork, IZKevmConfiguration } from '../../helpers/types';
 
 import { CommonsConfig } from './commons';
 import {
   strategyWETH,
-  strategyDAI,
   strategyUSDC,
-  strategyUSDT,
-  strategyAAVE,
   strategyWBTC,
-  strategyWAVAX,
 } from './reservesConfigs';
 
 // ----------------
 // POOL--SPECIFIC PARAMS
 // ----------------
 
-export const AvalancheConfig: IAvalancheConfiguration = {
+export const AvalancheConfig: IZKevmConfiguration = {
   ...CommonsConfig,
   MarketId: 'Avalanche market',
   ProviderId: 4,
   ReservesConfig: {
     WETH: strategyWETH,
-    DAI: strategyDAI,
-    USDT: strategyUSDT,
     USDC: strategyUSDC,
-    AAVE: strategyAAVE,
     WBTC: strategyWBTC,
-    WAVAX: strategyWAVAX,
   },
   ReserveAssets: {
-    [eAvalancheNetwork.avalanche]: {
+    [eZKevmNetwork.mainnet]: {
       WETH: '0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab',
       DAI: '0xd586e7f844cea2f87f50152665bcbc2c279d8d70',
       USDT: '0xc7198437980c041c805a1edcba50c1ce5db95118',
@@ -38,7 +30,7 @@ export const AvalancheConfig: IAvalancheConfiguration = {
       WBTC: '0x50b7545627a5162f82a992c33b87adc75187b218',
       WAVAX: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
     },
-    [eAvalancheNetwork.fuji]: {
+    [eZKevmNetwork.testnet]: {
       WETH: '0x9668f5f55f2712Dd2dfa316256609b516292D554', // MintableERC20 token
       DAI: '0x51BC2DfB9D12d9dB50C855A5330fBA0faF761D15',
       USDT: '0x02823f9B469960Bb3b1de0B3746D4b95B7E35543', // MintableERC20 token
