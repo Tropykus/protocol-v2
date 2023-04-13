@@ -11,7 +11,7 @@ import AaveConfig from '../markets/aave';
 import MaticConfig from '../markets/matic';
 import AvalancheConfig from '../markets/avalanche';
 import AmmConfig from '../markets/amm';
-import TropykusConfig from '../markets/tropykus';
+import ZKevmConfig from '../markets/zkevm';
 
 import { CommonsConfig } from '../markets/aave/commons';
 import { DRE, filterMapBy } from './misc-utils';
@@ -25,7 +25,7 @@ export enum ConfigNames {
   Matic = 'Matic',
   Amm = 'Amm',
   Avalanche = 'Avalanche',
-  Tropykus = 'Tropykus',
+  ZKevm = 'ZKevm',
 }
 
 export const loadPoolConfig = (configName: ConfigNames): PoolConfiguration => {
@@ -40,8 +40,8 @@ export const loadPoolConfig = (configName: ConfigNames): PoolConfiguration => {
       return AvalancheConfig;
     case ConfigNames.Commons:
       return CommonsConfig;
-    case ConfigNames.Tropykus:
-      return TropykusConfig;
+    case ConfigNames.ZKevm:
+      return ZKevmConfig;
     default:
       throw new Error(
         `Unsupported pool configuration: ${configName} is not one of the supported configs ${Object.values(
@@ -69,6 +69,9 @@ export const getReservesConfigByPool = (pool: AavePools): iMultiPoolsAssets<IRes
       },
       [AavePools.avalanche]: {
         ...AvalancheConfig.ReservesConfig,
+      },
+      [AavePools.zkevm]: {
+        ...ZKevmConfig.ReservesConfig,
       },
     },
     pool

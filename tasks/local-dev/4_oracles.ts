@@ -16,11 +16,11 @@ import {
   getPriceOracle,
 } from '../../helpers/contracts-getters';
 
-task('tropykus-dev:deploy-oracles', 'Deploy oracles for dev environment')
+task('local-dev:deploy-oracles', 'Deploy oracles for dev environment')
   .addFlag('verify', 'Verify contracts at Etherscan')
   .addParam('pool', `Pool name to retrieve configuration, supported: ${Object.values(ConfigNames)}`)
-  .setAction(async ({ verify, pool }, localBRE) => {
-    await localBRE.run('set-DRE');
+  .setAction(async ({ verify, pool }, DRE) => {
+    await DRE.run('set-DRE');
     const poolConfig = loadPoolConfig(pool);
     const {
       Mocks: { AllAssetsInitialPrices },

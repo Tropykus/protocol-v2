@@ -48,6 +48,7 @@ export enum AavePools {
   matic = 'matic',
   amm = 'amm',
   avalanche = 'avalanche',
+  zkevm = 'zkevm',
 }
 
 export enum eContractid {
@@ -330,6 +331,8 @@ export type iAvalanchePoolAssets<T> = Pick<
   'WETH' | 'DAI' | 'USDT' | 'AAVE' | 'WBTC' | 'WAVAX' | 'USDC'
 >;
 
+export type iZKevmPoolAssets<T> = Pick<iAssetsWithoutUSD<T>, 'WETH' | 'WBTC' | 'USDC'>;
+
 export type iMultiPoolsAssets<T> = iAssetCommon<T> | iAavePoolAssets<T>;
 
 export type iAavePoolTokens<T> = Omit<iAavePoolAssets<T>, 'ETH'>;
@@ -460,6 +463,7 @@ export interface iParamsPerPool<T> {
   [AavePools.matic]: T;
   [AavePools.amm]: T;
   [AavePools.avalanche]: T;
+  [AavePools.zkevm]: T;
 }
 
 export interface iBasicDistributionParams {
@@ -557,6 +561,10 @@ export interface IXDAIConfiguration extends ICommonConfiguration {
 
 export interface IAvalancheConfiguration extends ICommonConfiguration {
   ReservesConfig: iAvalanchePoolAssets<IReserveParams>;
+}
+
+export interface IZKevmConfiguration extends ICommonConfiguration {
+  ReservesConfig: iZKevmPoolAssets<IReserveParams>;
 }
 
 export interface ITokenAddress {

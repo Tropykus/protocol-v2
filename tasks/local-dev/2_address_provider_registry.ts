@@ -5,22 +5,19 @@ import {
 } from '../../helpers/contracts-deployments';
 import { getEthersSigners } from '../../helpers/contracts-helpers';
 import { waitForTx } from '../../helpers/misc-utils';
-import { TropykusConfig } from '../../markets/tropykus';
+import { AaveConfig } from '../../markets/aave';
 
 task(
-  'tropykus-dev:deploy-address-provider',
+  'local-dev:deploy-address-provider',
   'Deploy address provider, registry and fee provider for dev enviroment'
 )
   .addFlag('verify', 'Verify contracts at Etherscan')
-  .setAction(async ({ verify }, localBRE) => {
-    await localBRE.run('set-DRE');
+  .setAction(async ({ verify }, DRE) => {
+    await DRE.run('set-DRE');
 
     const admin = await (await getEthersSigners())[0].getAddress();
 
-    const addressesProvider = await deployLendingPoolAddressesProvider(
-      TropykusConfig.MarketId,
-      verify
-    );
+    const addressesProvider = await deployLendingPoolAddressesProvider(AaveConfig.MarketId, verify);
     await waitForTx(await addressesProvider.setPoolAdmin(admin));
     await waitForTx(await addressesProvider.setEmergencyAdmin(admin));
 

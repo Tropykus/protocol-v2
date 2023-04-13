@@ -1,8 +1,8 @@
 import { task } from 'hardhat/config';
 import { eEthereumNetwork } from '../../helpers/types';
 import { getTreasuryAddress } from '../../helpers/configuration';
-import * as marketConfigs from '../../markets/tropykus';
-import * as reserveConfigs from '../../markets/tropykus/reservesConfigs';
+import * as marketConfigs from '../../markets/zkevm';
+import * as reserveConfigs from '../../markets/zkevm/reservesConfigs';
 import { getLendingPoolAddressesProvider } from '../../helpers/contracts-getters';
 import {
   chooseATokenDeployment,
