@@ -135,12 +135,13 @@ const buidlerConfig: HardhatUserConfig = {
       url: 'http://localhost:8545',
     },
     ganache: {
-      url: 'http://ganache:8545',
+      url: 'http://localhost:8545',
+      chainId: 1337,
       accounts: {
-        mnemonic: 'fox sight canyon orphan hotel grow hedgehog build bless august weather swarm',
+        mnemonic: 'inject bullet brief retire loud combine insect bottom effort crop saddle initial',
         path: "m/44'/60'/0'/0",
         initialIndex: 0,
-        count: 20,
+        count: 10,
       },
     },
   },
