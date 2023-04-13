@@ -23,17 +23,17 @@ task('local:dev', 'Deploy development enviroment')
     console.log('2. Deploy address provider');
     await DRE.run('local-dev:deploy-address-provider', { verify });
 
-    console.log('3. Deploy lending pool');
-    await DRE.run('local-dev:deploy-lending-pool', { verify, pool: POOL_NAME });
+    // console.log('3. Deploy lending pool');
+    // await DRE.run('local-dev:deploy-lending-pool', { verify, pool: POOL_NAME });
 
-    console.log('4. Deploy oracles');
-    await DRE.run('local-dev:deploy-oracles', { verify, pool: POOL_NAME });
+    // console.log('4. Deploy oracles');
+    // await DRE.run('local-dev:deploy-oracles', { verify, pool: POOL_NAME });
 
-    console.log('5. Deploy WETH Gateway');
-    await DRE.run('full-deploy-weth-gateway', { verify, pool: POOL_NAME });
+    // console.log('5. Deploy WETH Gateway');
+    // await DRE.run('full-deploy-weth-gateway', { verify, pool: POOL_NAME });
 
-    console.log('6. Initialize lending pool');
-    await DRE.run('local-dev:initialize-lending-pool', { verify, pool: POOL_NAME });
+    // console.log('6. Initialize lending pool');
+    // await DRE.run('local-dev:initialize-lending-pool', { verify, pool: POOL_NAME });
 
     console.log('\nFinished migration');
     printContracts();

@@ -11,9 +11,9 @@ import {
 // POOL--SPECIFIC PARAMS
 // ----------------
 
-export const AvalancheConfig: IZKevmConfiguration = {
+export const ZKevmConfig: IZKevmConfiguration = {
   ...CommonsConfig,
-  MarketId: 'Avalanche market',
+  MarketId: 'zk EVM market',
   ProviderId: 4,
   ReservesConfig: {
     WETH: strategyWETH,
@@ -41,4 +41,4 @@ export const AvalancheConfig: IZKevmConfiguration = {
   },
 };
 
-export default AvalancheConfig;
+export default ZKevmConfig;
