@@ -152,7 +152,7 @@ export const getParamPerNetwork = <T>(param: iParamsPerNetwork<T>, network: eNet
   const { matic, mumbai } = param as iPolygonParamsPerNetwork<T>;
   const { xdai } = param as iXDaiParamsPerNetwork<T>;
   const { avalanche, fuji } = param as iAvalancheParamsPerNetwork<T>;
-  const { mainnet, testnet } = param as iZKevmParamsPerNetwork<T>;
+  const { zkmainnet, zktestnet } = param as iZKevmParamsPerNetwork<T>;
   if (process.env.FORK) {
     return param[process.env.FORK as eNetwork] as T;
   }
@@ -184,10 +184,10 @@ export const getParamPerNetwork = <T>(param: iParamsPerNetwork<T>, network: eNet
       return fuji;
     case eEthereumNetwork.goerli:
       return goerli;
-    case eZKevmNetwork.mainnet:
-      return mainnet;
-    case eZKevmNetwork.testnet:
-      return testnet;
+    case eZKevmNetwork.zkmainnet:
+      return zkmainnet;
+    case eZKevmNetwork.zktestnet:
+      return zktestnet;
   }
 };
 

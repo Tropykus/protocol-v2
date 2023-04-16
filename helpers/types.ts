@@ -38,8 +38,8 @@ export enum eAvalancheNetwork {
 }
 
 export enum eZKevmNetwork {
-  mainnet = 'mainnet',
-  testnet = 'testnet',
+  zkmainnet = 'zkmainnet',
+  zktestnet = 'zktestnet',
 }
 
 export enum EthereumNetworkNames {
@@ -51,6 +51,8 @@ export enum EthereumNetworkNames {
   xdai = 'xdai',
   avalanche = 'avalanche',
   fuji = 'fuji',
+  zkmainnet = 'zkmainnet',
+  zktestnet = 'zktestnet',
 }
 
 export enum AavePools {
@@ -470,8 +472,8 @@ export interface iAvalancheParamsPerNetwork<T> {
 }
 
 export interface iZKevmParamsPerNetwork<T> {
-  [eZKevmNetwork.mainnet]: T;
-  [eZKevmNetwork.testnet]: T;
+  [eZKevmNetwork.zkmainnet]: T;
+  [eZKevmNetwork.zktestnet]: T;
 }
 
 export interface iParamsPerPool<T> {

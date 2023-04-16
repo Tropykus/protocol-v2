@@ -1,12 +1,14 @@
 import { task } from 'hardhat/config';
-import { deployMockTokens } from '../../helpers/contracts-deployments';
+import { deployMockTokens, deployAllMockTokens } from '../../helpers/contracts-deployments';
 import { ConfigNames, loadPoolConfig } from '../../helpers/configuration';
 
 // Deploy zkEVM tokens
 task('local-dev:deploy-mock-tokens', 'Deploy mock tokens for dev enviroment')
   .addFlag('verify', 'Verify contracts at Etherscan')
-  .setAction(async ({ verify }, DRE) => {
+  .addParam('pool', `Pool name to retrieve configuration, supported: ${Object.values(ConfigNames)}`)
+  .setAction(async ({ verify, pool }, DRE) => {
     await DRE.run('set-DRE');
+    const poolConfig = loadPoolConfig(pool);
     console.log('Deploying mock tokens');
-    await deployMockTokens(loadPoolConfig(ConfigNames.ZKevm), verify);
+    await deployMockTokens(poolConfig, verify);
   });

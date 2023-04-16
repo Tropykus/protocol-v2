@@ -17,6 +17,7 @@ import {
   getLendingPoolAddressesProvider,
 } from '../../helpers/contracts-getters';
 import { chainlinkAggregatorProxy, chainlinkEthUsdAggregatorProxy } from '../../helpers/constants';
+import { Console } from 'console';
 
 task('full:initialize-lending-pool', 'Initialize lending pool configuration.')
   .addFlag('verify', 'Verify contracts at Etherscan')
@@ -39,6 +40,8 @@ task('full:initialize-lending-pool', 'Initialize lending pool configuration.')
       } = poolConfig as ICommonConfiguration;
 
       const reserveAssets = await getParamPerNetwork(ReserveAssets, network);
+      console.log('🚀 ~ file: 6-initialize.ts:43 ~ .setAction ~ reserveAssets:', reserveAssets);
+      //TODO: deploy incentive controller
       const incentivesController = await getParamPerNetwork(IncentivesController, network);
       const addressesProvider = await getLendingPoolAddressesProvider();
 
@@ -46,12 +49,14 @@ task('full:initialize-lending-pool', 'Initialize lending pool configuration.')
 
       const admin = await addressesProvider.getPoolAdmin();
       const oracle = await addressesProvider.getPriceOracle();
+      console.log('🚀 ~ file: 6-initialize.ts:50 ~ .setAction ~ oracle:', oracle);
 
       if (!reserveAssets) {
         throw 'Reserve assets is undefined. Check ReserveAssets configuration at config directory';
       }
 
       const treasuryAddress = await getTreasuryAddress(poolConfig);
+      console.log('🚀 ~ file: 6-initialize.ts:56 ~ .setAction ~ treasuryAddress:', treasuryAddress);
 
       await initReservesByHelper(
         ReservesConfig,
@@ -67,6 +72,8 @@ task('full:initialize-lending-pool', 'Initialize lending pool configuration.')
         verify
       );
       await configureReservesByHelper(ReservesConfig, reserveAssets, testHelpers, admin);
+
+      console.log('Reserves configured');
 
       let collateralManagerAddress = await getParamPerNetwork(
         LendingPoolCollateralManager,
@@ -98,17 +105,31 @@ task('full:initialize-lending-pool', 'Initialize lending pool configuration.')
         )
       );
 
+      console.log('Data provider configuration done! Deploying walletbalance provider');
+
       await deployWalletBalancerProvider(verify);
 
+      console.log('Wallet provider deployed');
+
       const lendingPoolAddress = await addressesProvider.getLendingPool();
+      console.log(
+        '🚀 ~ file: 6-initialize.ts:114 ~ .setAction ~ lendingPoolAddress:',
+        lendingPoolAddress
+      );
 
       let gateWay = getParamPerNetwork(WethGateway, network);
+      console.log('🚀 ~ file: 6-initialize.ts:117 ~ .setAction ~ gateWay:', gateWay);
       if (!notFalsyOrZeroAddress(gateWay)) {
         gateWay = (await getWETHGateway()).address;
+        console.log('🚀 ~ file: 6-initialize.ts:121 ~ .setAction ~ gateWay:', gateWay);
       }
       await authorizeWETHGateway(gateWay, lendingPoolAddress);
     } catch (err) {
       console.error(err);
       exit(1);
     }
+    console.log(
+      '🚀 ~ file: 6-initialize.ts:117 ~ .setAction ~ configureReservesByHelper:',
+      configureReservesByHelper
+    );
   });

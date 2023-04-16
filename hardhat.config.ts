@@ -9,6 +9,7 @@ import {
   eNetwork,
   ePolygonNetwork,
   eXDaiNetwork,
+  eZKevmNetwork
 } from './helpers/types';
 import { BUIDLEREVM_CHAINID, COVERAGE_CHAINID } from './helpers/buidler-constants';
 import {
@@ -109,6 +110,8 @@ const buidlerConfig: HardhatUserConfig = {
     avalanche: getCommonNetworkConfig(eAvalancheNetwork.avalanche, 43114),
     fuji: getCommonNetworkConfig(eAvalancheNetwork.fuji, 43113),
     goerli: getCommonNetworkConfig(eEthereumNetwork.goerli, 5),
+    zkmainnet: getCommonNetworkConfig(eZKevmNetwork.zkmainnet, 1101),
+    zktestnet: getCommonNetworkConfig(eZKevmNetwork.zktestnet, 1442),
     hardhat: {
       hardfork: 'berlin',
       blockGasLimit: DEFAULT_BLOCK_GAS_LIMIT,
@@ -138,7 +141,7 @@ const buidlerConfig: HardhatUserConfig = {
       url: 'http://localhost:8545',
       chainId: 1337,
       accounts: {
-        mnemonic: 'inject bullet brief retire loud combine insect bottom effort crop saddle initial',
+        mnemonic: 'unfair angle cherry nurse carry scare decide creek draft afraid energy raccoon',
         path: "m/44'/60'/0'/0",
         initialIndex: 0,
         count: 10,

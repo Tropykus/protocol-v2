@@ -45,23 +45,11 @@ export const CommonsConfig: ICommonConfiguration = {
     WETH: {
       borrowRate: oneRay.multipliedBy(0.03).toFixed(),
     },
-    DAI: {
-      borrowRate: oneRay.multipliedBy(0.039).toFixed(),
-    },
     USDC: {
       borrowRate: oneRay.multipliedBy(0.039).toFixed(),
     },
-    USDT: {
-      borrowRate: oneRay.multipliedBy(0.035).toFixed(),
-    },
-    AAVE: {
-      borrowRate: oneRay.multipliedBy(0.03).toFixed(),
-    },
     WBTC: {
       borrowRate: oneRay.multipliedBy(0.03).toFixed(),
-    },
-    WAVAX: {
-      borrowRate: oneRay.multipliedBy(0.05).toFixed(), // TODO: fix borrowRate?
     },
   },
   // ----------------
@@ -70,96 +58,91 @@ export const CommonsConfig: ICommonConfiguration = {
 
   // If PoolAdmin/emergencyAdmin is set, will take priority over PoolAdminIndex/emergencyAdminIndex
   PoolAdmin: {
-    [eZKevmNetwork.mainnet]: undefined,
-    [eZKevmNetwork.testnet]: undefined,
+    [eZKevmNetwork.zkmainnet]: undefined,
+    [eZKevmNetwork.zktestnet]: '0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59',
   },
   PoolAdminIndex: 0,
   EmergencyAdminIndex: 0,
   EmergencyAdmin: {
-    [eZKevmNetwork.mainnet]: undefined,
-    [eZKevmNetwork.testnet]: undefined,
+    [eZKevmNetwork.zkmainnet]: undefined,
+    [eZKevmNetwork.zktestnet]: '0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59',
   },
   ProviderRegistry: {
-    [eZKevmNetwork.mainnet]: '',
-    [eZKevmNetwork.testnet]: '0x06eC0BDC3997EE32Cb5B66a1B9C11d92e2C27Aab',
+    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zktestnet]: '',
   },
   ProviderRegistryOwner: {
-    [eZKevmNetwork.mainnet]: '',
-    [eZKevmNetwork.testnet]: '0x1128d177BdaA74Ae68EB06e693f4CbA6BF427a5e',
+    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zktestnet]: '0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59',
   },
   LendingRateOracle: {
-    [eZKevmNetwork.mainnet]: '',
-    [eZKevmNetwork.testnet]: '0xEbBD998B7Dc2a8E675F0859d907c8Fa6027aBc7b',
+    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zktestnet]: '',
   },
   LendingPoolCollateralManager: {
-    [eZKevmNetwork.mainnet]: '',
-    [eZKevmNetwork.testnet]: '0x6242bE2fB5591FA1e81a99e6DD55Ff667fa82a71',
+    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zktestnet]: '',
   },
   LendingPoolConfigurator: {
-    [eZKevmNetwork.mainnet]: '',
-    [eZKevmNetwork.testnet]: '',
+    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zktestnet]: '',
   },
   LendingPool: {
-    [eZKevmNetwork.mainnet]: '',
-    [eZKevmNetwork.testnet]: '0x5f3968A2E41C95A95329333d44AB989de6c43f8E',
+    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zktestnet]: '',
   },
   WethGateway: {
-    [eZKevmNetwork.mainnet]: '',
-    [eZKevmNetwork.testnet]: '0x62AF6258d26838f33BADFbb33cf1De8FaB8EB19f',
+    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zktestnet]: '',
   },
   TokenDistributor: {
-    [eZKevmNetwork.mainnet]: '',
-    [eZKevmNetwork.testnet]: '',
+    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zktestnet]: '',
   },
   AaveOracle: {
-    [eZKevmNetwork.mainnet]: '',
-    [eZKevmNetwork.testnet]: '0xD217DdD9f0Af84644dEFe84a0b634621D4617a29',
+    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zktestnet]: '',
   },
   FallbackOracle: {
-    [eZKevmNetwork.mainnet]: ZERO_ADDRESS,
-    [eZKevmNetwork.testnet]: ZERO_ADDRESS,
+    [eZKevmNetwork.zkmainnet]: ZERO_ADDRESS,
+    [eZKevmNetwork.zktestnet]: ZERO_ADDRESS,
   },
   ChainlinkAggregator: {
-    [eZKevmNetwork.mainnet]: {
+    [eZKevmNetwork.zkmainnet]: {
       WETH: '0x976B3D034E162d8bD72D6b9C989d545b839003b0',
-      DAI: '0x51D7180edA2260cc4F6e4EebB82FEF5c3c2B8300',
       USDC: '0xF096872672F44d6EBA71458D74fe67F9a77a23B9',
-      USDT: '0xEBE676ee90Fe1112671f19b6B7459bC678B67e8a',
-      AAVE: '0x3CA13391E9fb38a75330fb28f8cc2eB3D9ceceED',
       WBTC: '0x2779D32d5166BAaa2B2b658333bA7e6Ec0C65743',
-      WAVAX: '0x0A77230d17318075983913bC2145DB16C7366156',
     },
-    [eZKevmNetwork.testnet]: {
-      WETH: '0x86d67c3D38D2bCeE722E601025C25a575021c6EA',
-      USDT: '0x7898AcCC83587C3C55116c5230C17a6Cd9C71bad',
-      WBTC: '0x31CF013A08c6Ac228C94551d535d5BAfE19c602a',
-      WAVAX: '0x5498BB86BC934c8D34FDA08E81D444153d0D06aD',
+    [eZKevmNetwork.zktestnet]: {
+      WETH: '0xf4e77E5Da47AC3125140c470c71cBca77B5c638c',
+      USDC: '0xf784709d2317D872237C4bC22f867d1BAe2913AB',
+      WBTC: '0x3619DbE27d7c1e7E91aA738697Ae7Bc5FC3eACA5',
       USD: '0x86d67c3D38D2bCeE722E601025C25a575021c6EA',
     },
   },
   ReserveAssets: {
-    [eZKevmNetwork.mainnet]: {},
-    [eZKevmNetwork.testnet]: {},
+    [eZKevmNetwork.zkmainnet]: {},
+    [eZKevmNetwork.zktestnet]: {},
   },
   ReservesConfig: {},
   ATokenDomainSeparator: {
-    [eZKevmNetwork.mainnet]: '',
-    [eZKevmNetwork.testnet]: '',
+    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zktestnet]: '',
   },
   WETH: {
-    [eZKevmNetwork.mainnet]: '',
-    [eZKevmNetwork.testnet]: '',
+    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zktestnet]: '',
   },
   WrappedNativeToken: {
-    [eZKevmNetwork.mainnet]: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7', // Official WAVAX
-    [eZKevmNetwork.testnet]: '0xd00ae08403B9bbb9124bB305C09058E32C39A48c', // Official WAVAX
+    [eZKevmNetwork.zkmainnet]: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7', // Official WETH
+    [eZKevmNetwork.zktestnet]: '0xef38BD737fe12a3bC51fa82CC9c7B1B1001aD590', // Official WETH
   },
   ReserveFactorTreasuryAddress: {
-    [eZKevmNetwork.mainnet]: '0x467b92aF281d14cB6809913AD016a607b5ba8A36',
-    [eZKevmNetwork.testnet]: '0xB45F5C501A22288dfdb897e5f73E189597e09288', // Self-controlled EOA for testing
+    [eZKevmNetwork.zkmainnet]: ZERO_ADDRESS,
+    [eZKevmNetwork.zktestnet]: '0xc3CAa113B1Af2Dc76BCaC504fD83e6c6e7deDDF2', // Self-controlled EOA for testing
   },
   IncentivesController: {
-    [eZKevmNetwork.mainnet]: '0x01D83Fe6A10D2f2B7AF17034343746188272cAc9',
-    [eZKevmNetwork.testnet]: '0xa1EF206fb9a8D8186157FC817fCddcC47727ED55',
+    [eZKevmNetwork.zkmainnet]: ZERO_ADDRESS,
+    [eZKevmNetwork.zktestnet]: ZERO_ADDRESS,
   },
 };

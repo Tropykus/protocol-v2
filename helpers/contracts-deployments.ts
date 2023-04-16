@@ -575,10 +575,14 @@ export const deployWETHGateway = async (args: [tEthereumAddress], verify?: boole
 export const authorizeWETHGateway = async (
   wethGateWay: tEthereumAddress,
   lendingPool: tEthereumAddress
-) =>
-  await new WETHGatewayFactory(await getFirstSigner())
+) => {
+  console.log('🚀 ~ file: contracts-deployments.ts:579 ~ lendingPool:', lendingPool);
+  console.log('🚀 ~ file: contracts-deployments.ts:579 ~ wethGateWay:', wethGateWay);
+
+  return await new WETHGatewayFactory(await getFirstSigner())
     .attach(wethGateWay)
     .authorizeLendingPool(lendingPool);
+};
 
 export const deployMockStableDebtToken = async (
   args: [tEthereumAddress, tEthereumAddress, tEthereumAddress, string, string, string],

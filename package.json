@@ -19,6 +19,8 @@
     "hardhat:matic": "hardhat --network matic",
     "hardhat:fuji": "hardhat --network fuji",
     "hardhat:avalanche": "hardhat --network avalanche",
+    "hardhat:zktestnet": "hardhat --network zktestnet",
+    "hardhat:zkmainnet": "hardhat --network zkmainnet",
     "compile": "SKIP_LOAD=true hardhat compile",
     "console:fork": "FORK=main hardhat console",
     "test": "npm run compile && TS_NODE_TRANSPILE_ONLY=1 hardhat test ./test-suites/test-aave/*.spec.ts",

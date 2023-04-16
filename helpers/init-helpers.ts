@@ -83,6 +83,7 @@ export const initReservesByHelper = async (
   let strategyAddresses: Record<string, tEthereumAddress> = {};
 
   const reserves = Object.entries(reservesParams);
+  console.log('🚀 ~ file: init-helpers.ts:87 ~ reserves:', reserves);
 
   for (let [symbol, params] of reserves) {
     if (!tokenAddresses[symbol]) {
@@ -91,6 +92,7 @@ export const initReservesByHelper = async (
     }
     const pool = await getLendingPool(await addressProvider.getLendingPool());
     const poolReserve = await pool.getReserveData(tokenAddresses[symbol]);
+    console.log('🚀 ~ file: init-helpers.ts:95 ~ poolReserve:', poolReserve);
     if (poolReserve.aTokenAddress !== ZERO_ADDRESS) {
       console.log(`- Skipping init of ${symbol} due is already initialized`);
       continue;
@@ -104,6 +106,7 @@ export const initReservesByHelper = async (
       stableRateSlope1,
       stableRateSlope2,
     } = strategy;
+    console.log('🚀 ~ file: init-helpers.ts:109 ~ strategy:', strategy);
     if (!strategyAddresses[strategy.name]) {
       // Strategy does not exist, create a new one
       rateStrategies[strategy.name] = [
@@ -123,10 +126,12 @@ export const initReservesByHelper = async (
 
       // This causes the last strategy to be printed twice, once under "DefaultReserveInterestRateStrategy"
       // and once under the actual `strategyASSET` key.
+      console.log('Strategies deployed');
       rawInsertContractAddressInDb(strategy.name, strategyAddresses[strategy.name]);
     }
     // Prepare input parameters
     reserveSymbols.push(symbol);
+    console.log('🚀 ~ file: init-helpers.ts:134 ~ reserveSymbols:', reserveSymbols);
     initInputParams.push({
       aTokenImpl: await getContractAddressWithJsonFallback(aTokenImpl, poolName),
       stableDebtTokenImpl: await getContractAddressWithJsonFallback(
@@ -151,11 +156,13 @@ export const initReservesByHelper = async (
       stableDebtTokenSymbol: `stableDebt${symbolPrefix}${symbol}`,
       params: await getATokenExtraParams(aTokenImpl, tokenAddresses[symbol]),
     });
+    console.log('🚀 ~ file: init-helpers.ts:159 ~ initInputParams:', initInputParams);
   }
 
   // Deploy init reserves per chunks
   const chunkedSymbols = chunk(reserveSymbols, initChunks);
   const chunkedInitInputParams = chunk(initInputParams, initChunks);
+  console.log('🚀 ~ file: init-helpers.ts:165 ~ chunkedInitInputParams:', chunkedInitInputParams);
 
   const configurator = await getLendingPoolConfiguratorProxy();
 
