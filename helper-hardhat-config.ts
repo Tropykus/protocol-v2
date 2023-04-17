@@ -75,8 +75,8 @@ export const NETWORKS_DEFAULT_GAS: iParamsPerNetwork<number> = {
   [eAvalancheNetwork.avalanche]: 225 * GWEI,
   [eAvalancheNetwork.fuji]: 85 * GWEI,
   [eEthereumNetwork.goerli]: 2 * GWEI,
-  [eZKevmNetwork.zkmainnet]: 35 * GWEI,
-  [eZKevmNetwork.zktestnet]: 35 * GWEI,
+  [eZKevmNetwork.zkmainnet]: 7 * GWEI,
+  [eZKevmNetwork.zktestnet]: 7 * GWEI,
 };
 
 export const BLOCK_TO_FORK: iParamsPerNetwork<number | undefined> = {

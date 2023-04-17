@@ -27,9 +27,9 @@ export const ZKevmConfig: IZKevmConfiguration = {
       WBTC: '0x50b7545627a5162f82a992c33b87adc75187b218',
     },
     [eZKevmNetwork.zktestnet]: {
-      WETH: '0x9660310567bfE9c7555E5FBdbB8DD30518983C08', // MintableERC20 token
-      USDC: '0xEc36899D4Cd6f72ba610aF6AC3B60ed1e954124a', // MintableERC20 token
-      WBTC: '0xCCEF0Dd1f507A6bA5FD98841C835B582DE2D3084', // MintableERC20 token
+      WETH: '0xef38BD737fe12a3bC51fa82CC9c7B1B1001aD590', // MintableERC20 token
+      USDC: '0xD69c1C86ed862Fc5545C4787F2Aa3486f7Ec6955', // MintableERC20 token
+      WBTC: '0xC14d648730e6e9AF926cfc68ad4807Eae126Fd12', // MintableERC20 token
     },
   },
 };

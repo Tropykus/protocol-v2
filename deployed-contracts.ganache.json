@@ -1,0 +1,175 @@
+{
+  "MintableERC20": {
+    "ganache": {
+      "address": "0xC14d648730e6e9AF926cfc68ad4807Eae126Fd12",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "WETH": {
+    "ganache": {
+      "address": "0xef38BD737fe12a3bC51fa82CC9c7B1B1001aD590",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "USDC": {
+    "ganache": {
+      "address": "0xD69c1C86ed862Fc5545C4787F2Aa3486f7Ec6955",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "WBTC": {
+    "ganache": {
+      "address": "0xC14d648730e6e9AF926cfc68ad4807Eae126Fd12",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "LendingPoolAddressesProvider": {
+    "ganache": {
+      "address": "0x03033969DD929757f054dD4aF76DDb88dFd91187",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "LendingPoolAddressesProviderRegistry": {
+    "ganache": {
+      "address": "0x9cb5F5028A8cAe1F786C57D28aa87b770b2f3F8B",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "ReserveLogic": {
+    "ganache": {
+      "address": "0xb69B70553f34254300180C27d733bD770476F59b",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "GenericLogic": {
+    "ganache": {
+      "address": "0xEaAb4DbfdA1f1353034f57EAc1ce494FD855bfc0",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "ValidationLogic": {
+    "ganache": {
+      "address": "0x5357Cf9717bAE945b4Eee5B703544A51AcAC805C",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "LendingPoolImpl": {
+    "ganache": {
+      "address": "0x36f371648ffE9efa2480D7C00fdF35520AbFFe2a"
+    }
+  },
+  "LendingPool": {
+    "ganache": {
+      "address": "0x323341B6a67a559F73260F0074662Fc9Bd874315"
+    }
+  },
+  "LendingPoolConfiguratorImpl": {
+    "ganache": {
+      "address": "0x20be183bec0CAAccB36D1dffa4F15FA30C70f31e"
+    }
+  },
+  "LendingPoolConfigurator": {
+    "ganache": {
+      "address": "0x76F9eca236638D11Bf7F7e96BD8d0a4241BEb701"
+    }
+  },
+  "StableAndVariableTokensHelper": {
+    "ganache": {
+      "address": "0xDA282ae98445dAF257de0887d29b77e8a6ddC30B",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "ATokensAndRatesHelper": {
+    "ganache": {
+      "address": "0xfB7448D8f5eb037a007ABEAD272b4fcf17b30877",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "AToken": {
+    "ganache": {
+      "address": "0x2BaBE2546a9a3102E7125d336745d75342AD5E19",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "StableDebtToken": {
+    "ganache": {
+      "address": "0xcA342126c82a49644739985CC96d798E6bcE06eD",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "VariableDebtToken": {
+    "ganache": {
+      "address": "0x9359afa537a6E111f8FA04627B20EbEA6804Fdca",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "PriceOracle": {
+    "ganache": {
+      "address": "0x6DB7eA050bE3A64A1B226a647950dAa4BEbf7727",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "MockAggregator": {
+    "ganache": {
+      "address": "0x8f01a96B9c662E2D7921A7EbE058b923731C7FAD",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "AaveOracle": {
+    "ganache": {
+      "address": "0xc0DB27e9CA5A4433c840B4C8A5B475713FD74611",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "LendingRateOracle": {
+    "ganache": {
+      "address": "0x4dE74cbf9239143621525a92DEE515202bDBDe87",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "AaveProtocolDataProvider": {
+    "ganache": {
+      "address": "0xB88526fCACF2c94a0BfD88172FED65a07dc8fA8A",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "WETHGateway": {
+    "ganache": {
+      "address": "0xfb7d594798eBfb6a41f2bEa93aDE83e96B19C118",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "DefaultReserveInterestRateStrategy": {
+    "ganache": {
+      "address": "0xA475f5a2185fa6cC86d558bB83FeC10853931c15",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "rateStrategyVolatileOne": {
+    "ganache": {
+      "address": "0x1b394AA32D0A8E75198f2B322266b4c53fb2F9b1"
+    }
+  },
+  "rateStrategyStableOne": {
+    "ganache": {
+      "address": "0xA475f5a2185fa6cC86d558bB83FeC10853931c15"
+    }
+  },
+  "LendingPoolCollateralManagerImpl": {
+    "ganache": {
+      "address": "0xf5f8eb5ee2e84A1529CCD72b79e775c20FB7526F"
+    }
+  },
+  "LendingPoolCollateralManager": {
+    "ganache": {
+      "address": "0xf5f8eb5ee2e84A1529CCD72b79e775c20FB7526F",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  },
+  "WalletBalanceProvider": {
+    "ganache": {
+      "address": "0x762d1F5145295C2713a6ACD2cC53FA1Af1bc707D",
+      "deployer": "0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59"
+    }
+  }
+}
