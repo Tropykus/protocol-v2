@@ -22,9 +22,9 @@ export const ZKevmConfig: IZKevmConfiguration = {
   },
   ReserveAssets: {
     [eZKevmNetwork.zkmainnet]: {
-      WETH: '0x49d5c2bdffac6ce2bfdb6640f4f80f226bc10bab',
-      USDC: '0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664',
-      WBTC: '0x50b7545627a5162f82a992c33b87adc75187b218',
+      WETH: '0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9', // WETH OFFICIAL
+      USDC: '0xA8CE8aee21bC2A48a5EF670afCc9274C7bbbC035', // 
+      // WBTC: '0x50b7545627a5162f82a992c33b87adc75187b218',
     },
     [eZKevmNetwork.zktestnet]: {
       WETH: '0xe3d4bc4DB2C69110639C21e1F47ED19e05Bc90CB', // MintableERC20 token

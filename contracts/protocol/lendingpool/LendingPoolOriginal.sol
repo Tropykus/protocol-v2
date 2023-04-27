@@ -86,7 +86,7 @@ contract LendingPool is VersionedInitializable, ILendingPool, LendingPoolStorage
   function initialize(ILendingPoolAddressesProvider provider) public initializer {
     _addressesProvider = provider;
     _maxStableRateBorrowSizePercent = 2500;
-    _flashLoanPremiumTotal = 10000;
+    _flashLoanPremiumTotal = 9;
     _maxNumberOfReserves = 128;
   }
 

@@ -58,13 +58,13 @@ export const CommonsConfig: ICommonConfiguration = {
 
   // If PoolAdmin/emergencyAdmin is set, will take priority over PoolAdminIndex/emergencyAdminIndex
   PoolAdmin: {
-    [eZKevmNetwork.zkmainnet]: undefined,
+    [eZKevmNetwork.zkmainnet]: '',
     [eZKevmNetwork.zktestnet]: '',
   },
   PoolAdminIndex: 0,
   EmergencyAdminIndex: 0,
   EmergencyAdmin: {
-    [eZKevmNetwork.zkmainnet]: undefined,
+    [eZKevmNetwork.zkmainnet]: '',
     [eZKevmNetwork.zktestnet]: '0x05c94874d77a53298aC169Ca83078862e414D384',
   },
   ProviderRegistry: {
@@ -130,11 +130,11 @@ export const CommonsConfig: ICommonConfiguration = {
     [eZKevmNetwork.zktestnet]: '',
   },
   WETH: {
-    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zkmainnet]: '0xe3d4bc4DB2C69110639C21e1F47ED19e05Bc90CB',
     [eZKevmNetwork.zktestnet]: '0xe3d4bc4DB2C69110639C21e1F47ED19e05Bc90CB',
   },
   WrappedNativeToken: {
-    [eZKevmNetwork.zkmainnet]: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7', // Official WETH
+    [eZKevmNetwork.zkmainnet]: '0xe3d4bc4DB2C69110639C21e1F47ED19e05Bc90CB', // Official WETH
     [eZKevmNetwork.zktestnet]: '0xe3d4bc4DB2C69110639C21e1F47ED19e05Bc90CB', // Official WETH
   },
   ReserveFactorTreasuryAddress: {
