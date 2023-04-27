@@ -59,21 +59,21 @@ export const CommonsConfig: ICommonConfiguration = {
   // If PoolAdmin/emergencyAdmin is set, will take priority over PoolAdminIndex/emergencyAdminIndex
   PoolAdmin: {
     [eZKevmNetwork.zkmainnet]: undefined,
-    [eZKevmNetwork.zktestnet]: '0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59',
+    [eZKevmNetwork.zktestnet]: '',
   },
   PoolAdminIndex: 0,
   EmergencyAdminIndex: 0,
   EmergencyAdmin: {
     [eZKevmNetwork.zkmainnet]: undefined,
-    [eZKevmNetwork.zktestnet]: '0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59',
+    [eZKevmNetwork.zktestnet]: '0x05c94874d77a53298aC169Ca83078862e414D384',
   },
   ProviderRegistry: {
     [eZKevmNetwork.zkmainnet]: '',
-    [eZKevmNetwork.zktestnet]: '',
+    [eZKevmNetwork.zktestnet]: '0x982901fb59C20671f41eA9e97E8a072d0b369253',
   },
   ProviderRegistryOwner: {
     [eZKevmNetwork.zkmainnet]: '',
-    [eZKevmNetwork.zktestnet]: '0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59',
+    [eZKevmNetwork.zktestnet]: '0x05c94874d77a53298aC169Ca83078862e414D384',
   },
   LendingRateOracle: {
     [eZKevmNetwork.zkmainnet]: '',
@@ -131,15 +131,15 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   WETH: {
     [eZKevmNetwork.zkmainnet]: '',
-    [eZKevmNetwork.zktestnet]: '',
+    [eZKevmNetwork.zktestnet]: '0xe3d4bc4DB2C69110639C21e1F47ED19e05Bc90CB',
   },
   WrappedNativeToken: {
     [eZKevmNetwork.zkmainnet]: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7', // Official WETH
-    [eZKevmNetwork.zktestnet]: '0xef38BD737fe12a3bC51fa82CC9c7B1B1001aD590', // Official WETH
+    [eZKevmNetwork.zktestnet]: '0xe3d4bc4DB2C69110639C21e1F47ED19e05Bc90CB', // Official WETH
   },
   ReserveFactorTreasuryAddress: {
     [eZKevmNetwork.zkmainnet]: ZERO_ADDRESS,
-    [eZKevmNetwork.zktestnet]: '0xc3CAa113B1Af2Dc76BCaC504fD83e6c6e7deDDF2', // Self-controlled EOA for testing
+    [eZKevmNetwork.zktestnet]: '0xDbADD95d1Bd034ad4FCd5C98BFd38669e8e75185', // Self-controlled EOA for testing
   },
   IncentivesController: {
     [eZKevmNetwork.zkmainnet]: ZERO_ADDRESS,

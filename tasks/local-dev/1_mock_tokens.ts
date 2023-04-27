@@ -1,5 +1,5 @@
 import { task } from 'hardhat/config';
-import { deployMockTokens, deployAllMockTokens } from '../../helpers/contracts-deployments';
+import { deployMockTokens, deployWETHMocked } from '../../helpers/contracts-deployments';
 import { ConfigNames, loadPoolConfig } from '../../helpers/configuration';
 
 // Deploy zkEVM tokens
@@ -11,4 +11,5 @@ task('local-dev:deploy-mock-tokens', 'Deploy mock tokens for dev enviroment')
     const poolConfig = loadPoolConfig(pool);
     console.log('Deploying mock tokens');
     await deployMockTokens(poolConfig, verify);
+    await deployWETHMocked(verify);
   });

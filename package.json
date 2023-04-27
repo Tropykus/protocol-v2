@@ -175,6 +175,7 @@
   ],
   "license": "AGPLv3",
   "dependencies": {
+    "@api3/contracts": "^0.7.1",
     "axios-curlirize": "^1.3.7",
     "tmp-promise": "^3.0.2"
   },

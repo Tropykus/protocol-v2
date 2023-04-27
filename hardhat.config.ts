@@ -74,11 +74,19 @@ let forkMode;
 
 const buidlerConfig: HardhatUserConfig = {
   solidity: {
-    version: '0.6.12',
-    settings: {
-      optimizer: { enabled: true, runs: 200 },
-      evmVersion: 'istanbul',
-    },
+    compilers: [
+      {
+        version: '0.6.12',
+        settings: {
+          optimizer: { enabled: true, runs: 200 },
+          evmVersion: 'istanbul',
+        }
+      },
+      {
+        version: "0.8.17",
+      },      
+    ]
+
   },
   typechain: {
     outDir: 'types',
@@ -141,7 +149,7 @@ const buidlerConfig: HardhatUserConfig = {
       url: 'http://localhost:8545',
       chainId: 1337,
       accounts: {
-        mnemonic: 'unfair angle cherry nurse carry scare decide creek draft afraid energy raccoon',
+        mnemonic: 'blue coach joke faint toddler over almost burst cross october north animal',
         path: "m/44'/60'/0'/0",
         initialIndex: 0,
         count: 10,
