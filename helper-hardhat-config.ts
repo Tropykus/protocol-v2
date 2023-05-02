@@ -57,7 +57,8 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eAvalancheNetwork.avalanche]: 'https://api.avax.network/ext/bc/C/rpc',
   [eAvalancheNetwork.fuji]: 'https://api.avax-test.network/ext/bc/C/rpc',
   [eEthereumNetwork.goerli]: `https://eth-goerli.g.alchemy.com/v2/${ALCHEMY_KEY}`,
-  [eZKevmNetwork.zkmainnet]: `https://polygonzkevm-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`,
+  [eZKevmNetwork.zkmainnet]: 'https://zkevm-rpc.com',
+  // [eZKevmNetwork.zkmainnet]: `https://polygonzkevm-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`,
   [eZKevmNetwork.zktestnet]: 'https://rpc.public.zkevm-test.net',
 };
 
@@ -75,8 +76,8 @@ export const NETWORKS_DEFAULT_GAS: iParamsPerNetwork<number> = {
   [eAvalancheNetwork.avalanche]: 225 * GWEI,
   [eAvalancheNetwork.fuji]: 85 * GWEI,
   [eEthereumNetwork.goerli]: 2 * GWEI,
-  [eZKevmNetwork.zkmainnet]: 35 * GWEI,
-  [eZKevmNetwork.zktestnet]: 35 * GWEI,
+  [eZKevmNetwork.zkmainnet]: 5.5 * GWEI,
+  [eZKevmNetwork.zktestnet]: 6 * GWEI,
 };
 
 export const BLOCK_TO_FORK: iParamsPerNetwork<number | undefined> = {

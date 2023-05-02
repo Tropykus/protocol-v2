@@ -15,10 +15,10 @@ import { ICommonConfiguration, eZKevmNetwork } from '../../helpers/types';
 
 export const CommonsConfig: ICommonConfiguration = {
   MarketId: 'Commons',
-  ATokenNamePrefix: 'Aave zk EVM Market',
-  StableDebtTokenNamePrefix: 'Aave zk EVM Market stable debt',
-  VariableDebtTokenNamePrefix: 'Aave zk EVM Market variable debt',
-  SymbolPrefix: 'v',
+  ATokenNamePrefix: 'Tropykus zk EVM Market',
+  StableDebtTokenNamePrefix: 'Tropykus zk EVM Market stable debt',
+  VariableDebtTokenNamePrefix: 'Tropykus zk EVM Market variable debt',
+  SymbolPrefix: 'k',
   ProviderId: 0, // Overriden in index.ts
   OracleQuoteCurrency: 'USD',
   OracleQuoteUnit: oneUsd.toString(),
@@ -59,40 +59,40 @@ export const CommonsConfig: ICommonConfiguration = {
   // If PoolAdmin/emergencyAdmin is set, will take priority over PoolAdminIndex/emergencyAdminIndex
   PoolAdmin: {
     [eZKevmNetwork.zkmainnet]: '',
-    [eZKevmNetwork.zktestnet]: '',
+    [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
   },
   PoolAdminIndex: 0,
   EmergencyAdminIndex: 0,
   EmergencyAdmin: {
-    [eZKevmNetwork.zkmainnet]: '',
-    [eZKevmNetwork.zktestnet]: '0x05c94874d77a53298aC169Ca83078862e414D384',
+    [eZKevmNetwork.zkmainnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
+    [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
   },
   ProviderRegistry: {
-    [eZKevmNetwork.zkmainnet]: '',
-    [eZKevmNetwork.zktestnet]: '0x982901fb59C20671f41eA9e97E8a072d0b369253',
+    [eZKevmNetwork.zkmainnet]: '0x4Dac514F520D051551372d277d1b2Fa3cF2AfdFF',
+    [eZKevmNetwork.zktestnet]: '0xff1084bA85B218564748f32868Cb2366a823772E',
   },
   ProviderRegistryOwner: {
-    [eZKevmNetwork.zkmainnet]: '',
-    [eZKevmNetwork.zktestnet]: '0x05c94874d77a53298aC169Ca83078862e414D384',
+    [eZKevmNetwork.zkmainnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
+    [eZKevmNetwork.zktestnet]: '',
   },
   LendingRateOracle: {
-    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zkmainnet]: '0xfc09e61904E2B042FE59b889FB55E2E2CAAF7799',
     [eZKevmNetwork.zktestnet]: '',
   },
   LendingPoolCollateralManager: {
-    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zkmainnet]: '0x6c7957F5bE827F25A52C0666BF55c5a6328D6E68',
     [eZKevmNetwork.zktestnet]: '',
   },
   LendingPoolConfigurator: {
-    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zkmainnet]: '0xc43c4EE4243aC6682dA33588655FcB1B16BF6b1e',
     [eZKevmNetwork.zktestnet]: '',
   },
   LendingPool: {
-    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zkmainnet]: '0xB57B04F4ab792215D7CF77ED51330951143E69a8',
     [eZKevmNetwork.zktestnet]: '',
   },
   WethGateway: {
-    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zkmainnet]: '0xcEBfF8F32607eEC13b5976B14356d13Ba330aC9a',
     [eZKevmNetwork.zktestnet]: '',
   },
   TokenDistributor: {
@@ -100,7 +100,7 @@ export const CommonsConfig: ICommonConfiguration = {
     [eZKevmNetwork.zktestnet]: '',
   },
   AaveOracle: {
-    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zkmainnet]: '0xB75fB011D06651bFa1690cc458002E7B3064D12C',
     [eZKevmNetwork.zktestnet]: '',
   },
   FallbackOracle: {
@@ -109,14 +109,14 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   ChainlinkAggregator: {
     [eZKevmNetwork.zkmainnet]: {
-      WETH: '0x976B3D034E162d8bD72D6b9C989d545b839003b0',
-      USDC: '0xF096872672F44d6EBA71458D74fe67F9a77a23B9',
-      WBTC: '0x2779D32d5166BAaa2B2b658333bA7e6Ec0C65743',
+      WETH: '0x9660310567bfE9c7555E5FBdbB8DD30518983C08',
+      USDC: '0xBB08684ad198410A19Cfa8f80B90F0Ae99323A76',
+      WBTC: '0xEc36899D4Cd6f72ba610aF6AC3B60ed1e954124a',
     },
     [eZKevmNetwork.zktestnet]: {
-      WETH: '0xf4e77E5Da47AC3125140c470c71cBca77B5c638c',
-      USDC: '0xf784709d2317D872237C4bC22f867d1BAe2913AB',
-      WBTC: '0x3619DbE27d7c1e7E91aA738697Ae7Bc5FC3eACA5',
+      WETH: '0x4409c21ff44f76b699da489901b1e462ae8e54c6',
+      USDC: '0x66D1eeE318A948f0b61f51BF08E80686E0D1348f',
+      WBTC: '0x41a8b0429e1440997be0dba75cde9dbd0d10be1b',
       USD: '0x86d67c3D38D2bCeE722E601025C25a575021c6EA',
     },
   },
@@ -130,16 +130,16 @@ export const CommonsConfig: ICommonConfiguration = {
     [eZKevmNetwork.zktestnet]: '',
   },
   WETH: {
-    [eZKevmNetwork.zkmainnet]: '0xe3d4bc4DB2C69110639C21e1F47ED19e05Bc90CB',
-    [eZKevmNetwork.zktestnet]: '0xe3d4bc4DB2C69110639C21e1F47ED19e05Bc90CB',
+    [eZKevmNetwork.zkmainnet]: '0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9',
+    [eZKevmNetwork.zktestnet]: '0x8e7E10956eBfb7C8F41cb4E96A02574b4DC7f1Cb',
   },
   WrappedNativeToken: {
-    [eZKevmNetwork.zkmainnet]: '0xe3d4bc4DB2C69110639C21e1F47ED19e05Bc90CB', // Official WETH
-    [eZKevmNetwork.zktestnet]: '0xe3d4bc4DB2C69110639C21e1F47ED19e05Bc90CB', // Official WETH
+    [eZKevmNetwork.zkmainnet]: '0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9', // Official WETH
+    [eZKevmNetwork.zktestnet]: '0x8e7E10956eBfb7C8F41cb4E96A02574b4DC7f1Cb', // Official WETH
   },
   ReserveFactorTreasuryAddress: {
-    [eZKevmNetwork.zkmainnet]: ZERO_ADDRESS,
-    [eZKevmNetwork.zktestnet]: '0xDbADD95d1Bd034ad4FCd5C98BFd38669e8e75185', // Self-controlled EOA for testing
+    [eZKevmNetwork.zkmainnet]: '0x74d11c17f8F2F24CFF151E8601b1d9e7b1CD238F', // Multisig
+    [eZKevmNetwork.zktestnet]: '0xF66a0eC93511f870329843a91B0a9Ff3D46aa9ba', // Self-controlled EOA for testing
   },
   IncentivesController: {
     [eZKevmNetwork.zkmainnet]: ZERO_ADDRESS,
