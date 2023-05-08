@@ -14,10 +14,10 @@ export const rateStrategyVolatileOne: IInterestRateStrategyParams = {
 
 export const rateStrategyStableOne: IInterestRateStrategyParams = {
   name: 'rateStrategyStableOne',
-  optimalUtilizationRate: new BigNumber(0.8).multipliedBy(oneRay).toFixed(),
-  baseVariableBorrowRate: new BigNumber(0).multipliedBy(oneRay).toFixed(),
-  variableRateSlope1: new BigNumber(0.04).multipliedBy(oneRay).toFixed(),
-  variableRateSlope2: new BigNumber(0.75).multipliedBy(oneRay).toFixed(),
+  optimalUtilizationRate: new BigNumber(0.9).multipliedBy(oneRay).toFixed(),
+  baseVariableBorrowRate: new BigNumber(0.0125).multipliedBy(oneRay).toFixed(),
+  variableRateSlope1: new BigNumber(0.11).multipliedBy(oneRay).toFixed(),
+  variableRateSlope2: new BigNumber(0.7).multipliedBy(oneRay).toFixed(),
   stableRateSlope1: new BigNumber(0.02).multipliedBy(oneRay).toFixed(),
-  stableRateSlope2: new BigNumber(0.75).multipliedBy(oneRay).toFixed(),
+  stableRateSlope2: new BigNumber(0.7).multipliedBy(oneRay).toFixed(),
 };

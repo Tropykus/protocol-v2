@@ -58,6 +58,7 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eAvalancheNetwork.fuji]: 'https://api.avax-test.network/ext/bc/C/rpc',
   [eEthereumNetwork.goerli]: `https://eth-goerli.g.alchemy.com/v2/${ALCHEMY_KEY}`,
   [eZKevmNetwork.zkmainnet]: 'https://zkevm-rpc.com',
+  // [eZKevmNetwork.zkmainnet]: `https://polygonzkevm-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`,
   [eZKevmNetwork.zktestnet]: 'https://rpc.public.zkevm-test.net',
 };
 

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
-import './MockOwnable.sol';
+import './Ownable.sol';
 import '@api3/contracts/v0.8/interfaces/IProxy.sol';
 
-contract MockApi3Aggregator is Ownable {
+contract Api3Aggregator is Ownable {
   // This contract reads from a single proxy. Your contract can read from
   // multiple proxies.
   address public proxy;
