@@ -58,7 +58,7 @@ export const CommonsConfig: ICommonConfiguration = {
 
   // If PoolAdmin/emergencyAdmin is set, will take priority over PoolAdminIndex/emergencyAdminIndex
   PoolAdmin: {
-    [eZKevmNetwork.zkmainnet]: '',
+    [eZKevmNetwork.zkmainnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
     [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
   },
   PoolAdminIndex: 0,
@@ -73,27 +73,27 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   ProviderRegistryOwner: {
     [eZKevmNetwork.zkmainnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
-    [eZKevmNetwork.zktestnet]: '',
+    [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
   },
   LendingRateOracle: {
     [eZKevmNetwork.zkmainnet]: '0xfc09e61904E2B042FE59b889FB55E2E2CAAF7799',
-    [eZKevmNetwork.zktestnet]: '',
+    [eZKevmNetwork.zktestnet]: '0x009928E543c8B7736BAfDD819fd682e2D2920c1a',
   },
   LendingPoolCollateralManager: {
     [eZKevmNetwork.zkmainnet]: '0x6c7957F5bE827F25A52C0666BF55c5a6328D6E68',
-    [eZKevmNetwork.zktestnet]: '',
+    [eZKevmNetwork.zktestnet]: '0x6d08364738Ea9f8349520d95E9928f0917bB7CaB',
   },
   LendingPoolConfigurator: {
     [eZKevmNetwork.zkmainnet]: '0xc43c4EE4243aC6682dA33588655FcB1B16BF6b1e',
-    [eZKevmNetwork.zktestnet]: '',
+    [eZKevmNetwork.zktestnet]: '0x5545490E42eb7cf14CF04129A1c7213fb00dEAaB',
   },
   LendingPool: {
     [eZKevmNetwork.zkmainnet]: '0xB57B04F4ab792215D7CF77ED51330951143E69a8',
-    [eZKevmNetwork.zktestnet]: '',
+    [eZKevmNetwork.zktestnet]: '0x052a450FDd174830B0f2aaa51358e3a82D73B854',
   },
   WethGateway: {
     [eZKevmNetwork.zkmainnet]: '0xcEBfF8F32607eEC13b5976B14356d13Ba330aC9a',
-    [eZKevmNetwork.zktestnet]: '',
+    [eZKevmNetwork.zktestnet]: '0x98e7a98DfD326EBd13c78789768EaDe3f2251C56',
   },
   TokenDistributor: {
     [eZKevmNetwork.zkmainnet]: '',
@@ -101,7 +101,7 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   AaveOracle: {
     [eZKevmNetwork.zkmainnet]: '0xB75fB011D06651bFa1690cc458002E7B3064D12C',
-    [eZKevmNetwork.zktestnet]: '',
+    [eZKevmNetwork.zktestnet]: '0xE10A347cf55f934Df185a628fd6Ff4F6C7B7081B',
   },
   FallbackOracle: {
     [eZKevmNetwork.zkmainnet]: ZERO_ADDRESS,
