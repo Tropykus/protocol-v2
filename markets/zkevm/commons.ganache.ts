@@ -59,21 +59,21 @@ export const CommonsConfig: ICommonConfiguration = {
   // If PoolAdmin/emergencyAdmin is set, will take priority over PoolAdminIndex/emergencyAdminIndex
   PoolAdmin: {
     [eZKevmNetwork.zkmainnet]: undefined,
-    [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
+    [eZKevmNetwork.zktestnet]: '0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59',
   },
   PoolAdminIndex: 0,
   EmergencyAdminIndex: 0,
   EmergencyAdmin: {
     [eZKevmNetwork.zkmainnet]: undefined,
-    [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
+    [eZKevmNetwork.zktestnet]: '0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59',
   },
   ProviderRegistry: {
     [eZKevmNetwork.zkmainnet]: '',
-    [eZKevmNetwork.zktestnet]: '0x7fc233B7CbE639eb121D84FEBfA2b2D55868E465',
+    [eZKevmNetwork.zktestnet]: '',
   },
   ProviderRegistryOwner: {
     [eZKevmNetwork.zkmainnet]: '',
-    [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
+    [eZKevmNetwork.zktestnet]: '0xd8765C6bBafA0FB9Ce14587B0B152a97cEA1ea59',
   },
   LendingRateOracle: {
     [eZKevmNetwork.zkmainnet]: '',
@@ -114,10 +114,10 @@ export const CommonsConfig: ICommonConfiguration = {
       WBTC: '0x2779D32d5166BAaa2B2b658333bA7e6Ec0C65743',
     },
     [eZKevmNetwork.zktestnet]: {
-      WETH: '',
-      USDC: '',
-      WBTC: '',
-      USD: ZERO_ADDRESS,
+      WETH: '0xf4e77E5Da47AC3125140c470c71cBca77B5c638c',
+      USDC: '0xf784709d2317D872237C4bC22f867d1BAe2913AB',
+      WBTC: '0x3619DbE27d7c1e7E91aA738697Ae7Bc5FC3eACA5',
+      USD: '0x86d67c3D38D2bCeE722E601025C25a575021c6EA',
     },
   },
   ReserveAssets: {
@@ -131,15 +131,15 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   WETH: {
     [eZKevmNetwork.zkmainnet]: '',
-    [eZKevmNetwork.zktestnet]: '0xe3d4bc4DB2C69110639C21e1F47ED19e05Bc90CB',
+    [eZKevmNetwork.zktestnet]: '',
   },
   WrappedNativeToken: {
     [eZKevmNetwork.zkmainnet]: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7', // Official WETH
-    [eZKevmNetwork.zktestnet]: '0x9660310567bfE9c7555E5FBdbB8DD30518983C08', // Official WETH
+    [eZKevmNetwork.zktestnet]: '0xef38BD737fe12a3bC51fa82CC9c7B1B1001aD590', // Official WETH
   },
   ReserveFactorTreasuryAddress: {
     [eZKevmNetwork.zkmainnet]: ZERO_ADDRESS,
-    [eZKevmNetwork.zktestnet]: '0x30Cd379534cE6C15eC08f00FF156166A2C7D1541', // Self-controlled EOA for testing
+    [eZKevmNetwork.zktestnet]: '0xc3CAa113B1Af2Dc76BCaC504fD83e6c6e7deDDF2', // Self-controlled EOA for testing
   },
   IncentivesController: {
     [eZKevmNetwork.zkmainnet]: ZERO_ADDRESS,
