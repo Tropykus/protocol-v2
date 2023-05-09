@@ -4,9 +4,12 @@ import { ConfigNames } from '../../helpers/configuration';
 import { printContracts } from '../../helpers/misc-utils';
 
 task('local:dev', 'Deploy development enviroment')
+  .addParam('pool', `Market pool configuration, one of ${Object.keys(ConfigNames)}`)
   .addFlag('verify', 'Verify contracts at Etherscan')
-  .setAction(async ({ verify }, DRE) => {
-    const POOL_NAME = ConfigNames.ZKevm;
+  .setAction(async ({ verify, pool }, DRE) => {
+    // const POOL_NAME = ConfigNames.ZKevm;
+    const POOL_NAME = pool;
+    console.log('🚀 ~ file: local.dev.ts:12 ~ .setAction ~ POOL_NAME:', POOL_NAME);
 
     await DRE.run('set-DRE');
 
@@ -18,7 +21,7 @@ task('local:dev', 'Deploy development enviroment')
     console.log('Migration started\n');
 
     console.log('1. Deploy mock tokens');
-    await DRE.run('local-dev:deploy-mock-tokens', { verify });
+    await DRE.run('local-dev:deploy-mock-tokens', { verify, pool: POOL_NAME });
 
     console.log('2. Deploy address provider');
     await DRE.run('local-dev:deploy-address-provider', { verify });

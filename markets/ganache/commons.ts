@@ -110,13 +110,13 @@ export const CommonsConfig: ICommonConfiguration = {
     [eGanacheNetwork.ganache]: '',
   },
   WETH: {
-    [eGanacheNetwork.ganache]: '0x15B102f854529845F56A97E84C3457155144F7a9',
+    [eGanacheNetwork.ganache]: '',
   },
   WrappedNativeToken: {
-    [eGanacheNetwork.ganache]: '0x15B102f854529845F56A97E84C3457155144F7a9', // Official WETH
+    [eGanacheNetwork.ganache]: '', // Official WETH
   },
   ReserveFactorTreasuryAddress: {
-    [eGanacheNetwork.ganache]: '0xDbADD95d1Bd034ad4FCd5C98BFd38669e8e75185', // Self-controlled EOA for testing
+    [eGanacheNetwork.ganache]: '0x25C31f3b362dA5f2129a824c99186b683A2e8453', // Self-controlled EOA for testing
   },
   IncentivesController: {
     [eGanacheNetwork.ganache]: ZERO_ADDRESS,

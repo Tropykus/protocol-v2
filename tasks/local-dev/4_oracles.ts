@@ -40,8 +40,7 @@ task('local-dev:deploy-oracles', 'Deploy oracles for dev environment')
       ...Object.fromEntries(Object.keys(TokenContractId).map((symbol) => [symbol, ''])),
       USD: UsdAddress,
     };
-    const mockTokens = await getAllMockedTokens();
-    // const mockTokens = await getMockedTokens(loadPoolConfig(ConfigNames.ZKevm));
+    const mockTokens = await getMockedTokens(poolConfig);
     const mockTokensAddress = Object.keys(mockTokens).reduce<{ [key: string]: string }>(
       (prev, curr) => {
         prev[curr] = mockTokens[curr].address;
@@ -53,6 +52,15 @@ task('local-dev:deploy-oracles', 'Deploy oracles for dev environment')
     const filteredMockTokensAddress = Object.fromEntries(
       Object.entries(mockTokensAddress).filter(([key, value]) => value !== '')
     );
+    const filteredInitialPrices = Object.fromEntries(
+      Object.entries(AllAssetsInitialPrices).filter(([key]) =>
+        filteredMockTokensAddress.hasOwnProperty(key)
+      )
+    );
+    console.log(
+      '🚀 ~ file: 4_oracles.ts:59 ~ .setAction ~ filteredInitialPrices:',
+      filteredInitialPrices
+    );
     console.log(
       '🚀 ~ file: 4_oracles.ts:51 ~ .setAction ~ filteredMockTokensAddress:',
       filteredMockTokensAddress
@@ -63,10 +71,13 @@ task('local-dev:deploy-oracles', 'Deploy oracles for dev environment')
 
     const fallbackOracle = await getPriceOracle('0x0F9d5ED72f6691E47abe2f79B890C3C33e924092');
     await waitForTx(await fallbackOracle.setEthUsdPrice(MockUsdPriceInWei));
-    await setInitialAssetPricesInOracle(AllAssetsInitialPrices, mockTokensAddress, fallbackOracle);
-    // await setInitialAssetPricesInOracle(AllAssetsInitialPrices, filteredMockTokensAddress, fallbackOracle);
+    await setInitialAssetPricesInOracle(
+      filteredInitialPrices,
+      filteredMockTokensAddress,
+      fallbackOracle
+    );
 
-    const mockAggregators = await deployAllMockAggregators(AllAssetsInitialPrices, verify);
+    const mockAggregators = await deployAllMockAggregators(filteredInitialPrices, verify);
     console.log('🚀 ~ file: 4_oracles.ts:65 ~ .setAction ~ mockAggregators:', mockAggregators);
 
     const allTokenAddresses = getAllTokenAddresses(mockTokens);
