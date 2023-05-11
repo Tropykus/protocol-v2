@@ -58,22 +58,22 @@ export const CommonsConfig: ICommonConfiguration = {
 
   // If PoolAdmin/emergencyAdmin is set, will take priority over PoolAdminIndex/emergencyAdminIndex
   PoolAdmin: {
-    [eZKevmNetwork.zkmainnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
-    [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
+    [eZKevmNetwork.zkmainnet]: '0x74d11c17f8F2F24CFF151E8601b1d9e7b1CD238F',
+    [eZKevmNetwork.zktestnet]: '0xF66a0eC93511f870329843a91B0a9Ff3D46aa9ba',
   },
   PoolAdminIndex: 0,
   EmergencyAdminIndex: 0,
   EmergencyAdmin: {
-    [eZKevmNetwork.zkmainnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
-    [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
+    [eZKevmNetwork.zkmainnet]: '0x74d11c17f8F2F24CFF151E8601b1d9e7b1CD238F',
+    [eZKevmNetwork.zktestnet]: '0xF66a0eC93511f870329843a91B0a9Ff3D46aa9ba',
   },
   ProviderRegistry: {
     [eZKevmNetwork.zkmainnet]: '0x4Dac514F520D051551372d277d1b2Fa3cF2AfdFF',
     [eZKevmNetwork.zktestnet]: '0xc2861B9bAd9aAeB682f001fE9DcD7Cdd630e4b12',
   },
   ProviderRegistryOwner: {
-    [eZKevmNetwork.zkmainnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
-    [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
+    [eZKevmNetwork.zkmainnet]: '0x74d11c17f8F2F24CFF151E8601b1d9e7b1CD238F',
+    [eZKevmNetwork.zktestnet]: '0xF66a0eC93511f870329843a91B0a9Ff3D46aa9ba',
   },
   LendingRateOracle: {
     [eZKevmNetwork.zkmainnet]: '0xfc09e61904E2B042FE59b889FB55E2E2CAAF7799',
