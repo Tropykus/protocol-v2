@@ -24,6 +24,7 @@ import {
   getAllMockedTokens,
   getLendingPoolAddressesProvider,
   getLendingPoolConfiguratorProxy,
+  getMockedTokens,
   getWETHGateway,
 } from '../../helpers/contracts-getters';
 import { insertContractAddressInDb } from '../../helpers/contracts-helpers';
@@ -43,7 +44,8 @@ task('local-dev:initialize-lending-pool', 'Initialize lending pool configuration
       WethGateway,
       ReservesConfig,
     } = poolConfig;
-    const mockTokens = await getAllMockedTokens();
+    console.log('🚀 ~ file: 5_initialize.ts:46 ~ .setAction ~ poolConfig:', poolConfig);
+    const mockTokens = await getMockedTokens(poolConfig);
     const allTokenAddresses = getAllTokenAddresses(mockTokens);
 
     const addressesProvider = await getLendingPoolAddressesProvider();

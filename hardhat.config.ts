@@ -152,7 +152,7 @@ const buidlerConfig: HardhatUserConfig = {
       url: 'http://localhost:8545',
       chainId: 1337,
       accounts: {
-        mnemonic: 'blue coach joke faint toddler over almost burst cross october north animal',
+        mnemonic: 'suspect chief harbor arrow bronze hollow assault struggle foot giraffe margin because',
         path: "m/44'/60'/0'/0",
         initialIndex: 0,
         count: 10,

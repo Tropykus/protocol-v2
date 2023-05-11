@@ -7,10 +7,9 @@ import {
 } from '../../helpers/oracles-helpers';
 import { ICommonConfiguration, iAssetBase, TokenContractId } from '../../helpers/types';
 import { waitForTx } from '../../helpers/misc-utils';
-import { getAllAggregatorsAddresses, getAllTokenAddresses } from '../../helpers/mock-helpers';
+import { getAllTokenAddresses } from '../../helpers/mock-helpers';
 import { ConfigNames, loadPoolConfig, getQuoteCurrency } from '../../helpers/configuration';
 import {
-  getAllMockedTokens,
   getMockedTokens,
   getLendingPoolAddressesProvider,
   getPairsTokenAggregator,
@@ -31,17 +30,11 @@ task('local-dev:deploy-oracles', 'Deploy oracles for dev environment')
       OracleQuoteUnit,
     } = poolConfig as ICommonConfiguration;
 
-    console.log(
-      '🚀 ~ file: 4_oracles.ts:28 ~ .setAction ~ AllAssetsInitialPrices:',
-      AllAssetsInitialPrices
-    );
-
     const defaultTokenList: { [key: string]: string } = {
       ...Object.fromEntries(Object.keys(TokenContractId).map((symbol) => [symbol, ''])),
       USD: UsdAddress,
     };
-    const mockTokens = await getAllMockedTokens();
-    // const mockTokens = await getMockedTokens(loadPoolConfig(ConfigNames.ZKevm));
+    const mockTokens = await getMockedTokens(poolConfig);
     const mockTokensAddress = Object.keys(mockTokens).reduce<{ [key: string]: string }>(
       (prev, curr) => {
         prev[curr] = mockTokens[curr].address;
@@ -49,13 +42,13 @@ task('local-dev:deploy-oracles', 'Deploy oracles for dev environment')
       },
       defaultTokenList
     );
-    console.log('🚀 ~ file: 4_oracles.ts:48 ~ .setAction ~ mockTokensAddress:', mockTokensAddress);
     const filteredMockTokensAddress = Object.fromEntries(
       Object.entries(mockTokensAddress).filter(([key, value]) => value !== '')
     );
-    console.log(
-      '🚀 ~ file: 4_oracles.ts:51 ~ .setAction ~ filteredMockTokensAddress:',
-      filteredMockTokensAddress
+    const filteredInitialPrices = Object.fromEntries(
+      Object.entries(AllAssetsInitialPrices).filter(([key]) =>
+        filteredMockTokensAddress.hasOwnProperty(key)
+      )
     );
     const addressesProvider = await getLendingPoolAddressesProvider();
     const admin = await addressesProvider.getPoolAdmin();
@@ -63,10 +56,13 @@ task('local-dev:deploy-oracles', 'Deploy oracles for dev environment')
 
     const fallbackOracle = await getPriceOracle('0x0F9d5ED72f6691E47abe2f79B890C3C33e924092');
     await waitForTx(await fallbackOracle.setEthUsdPrice(MockUsdPriceInWei));
-    await setInitialAssetPricesInOracle(AllAssetsInitialPrices, mockTokensAddress, fallbackOracle);
-    // await setInitialAssetPricesInOracle(AllAssetsInitialPrices, filteredMockTokensAddress, fallbackOracle);
+    await setInitialAssetPricesInOracle(
+      filteredInitialPrices,
+      filteredMockTokensAddress,
+      fallbackOracle
+    );
 
-    const mockAggregators = await deployAllMockAggregators(AllAssetsInitialPrices, verify);
+    const mockAggregators = await deployAllMockAggregators(filteredInitialPrices, verify);
     console.log('🚀 ~ file: 4_oracles.ts:65 ~ .setAction ~ mockAggregators:', mockAggregators);
 
     const allTokenAddresses = getAllTokenAddresses(mockTokens);

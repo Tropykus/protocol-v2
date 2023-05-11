@@ -4,7 +4,7 @@ import {
   oneRay,
   RAY,
   ZERO_ADDRESS,
-  MOCK_CHAINLINK_AGGREGATORS_PRICES,
+  MOCK_CHAINLINK_AGGREGATORS_PRICES_USD,
   oneUsd,
 } from '../../helpers/constants';
 import { ICommonConfiguration, eGanacheNetwork } from '../../helpers/types';
@@ -37,7 +37,7 @@ export const CommonsConfig: ICommonConfiguration = {
 
   Mocks: {
     AllAssetsInitialPrices: {
-      ...MOCK_CHAINLINK_AGGREGATORS_PRICES,
+      ...MOCK_CHAINLINK_AGGREGATORS_PRICES_USD,
     },
   },
   // TODO: reorg alphabetically, checking the reason of tests failing
@@ -110,10 +110,10 @@ export const CommonsConfig: ICommonConfiguration = {
     [eGanacheNetwork.ganache]: '',
   },
   WETH: {
-    [eGanacheNetwork.ganache]: '0x15B102f854529845F56A97E84C3457155144F7a9',
+    [eGanacheNetwork.ganache]: '',
   },
   WrappedNativeToken: {
-    [eGanacheNetwork.ganache]: '0x15B102f854529845F56A97E84C3457155144F7a9', // Official WETH
+    [eGanacheNetwork.ganache]: '', // Official WETH
   },
   ReserveFactorTreasuryAddress: {
     [eGanacheNetwork.ganache]: '0xDbADD95d1Bd034ad4FCd5C98BFd38669e8e75185', // Self-controlled EOA for testing
