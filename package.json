@@ -18,6 +18,7 @@
     "hardhat:mumbai": "hardhat --network mumbai",
     "hardhat:matic": "hardhat --network matic",
     "hardhat:fuji": "hardhat --network fuji",
+    "hardhat:ganache": "hardhat --network ganache",
     "hardhat:avalanche": "hardhat --network avalanche",
     "hardhat:zktestnet": "hardhat --network zktestnet",
     "hardhat:zkmainnet": "hardhat --network zkmainnet",

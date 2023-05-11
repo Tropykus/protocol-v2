@@ -4,7 +4,7 @@ import {
   oneRay,
   RAY,
   ZERO_ADDRESS,
-  MOCK_CHAINLINK_AGGREGATORS_PRICES,
+  MOCK_CHAINLINK_AGGREGATORS_PRICES_USD,
   oneUsd,
 } from '../../helpers/constants';
 import { ICommonConfiguration, eGanacheNetwork } from '../../helpers/types';
@@ -37,7 +37,7 @@ export const CommonsConfig: ICommonConfiguration = {
 
   Mocks: {
     AllAssetsInitialPrices: {
-      ...MOCK_CHAINLINK_AGGREGATORS_PRICES,
+      ...MOCK_CHAINLINK_AGGREGATORS_PRICES_USD,
     },
   },
   // TODO: reorg alphabetically, checking the reason of tests failing

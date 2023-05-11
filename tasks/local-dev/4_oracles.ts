@@ -7,10 +7,9 @@ import {
 } from '../../helpers/oracles-helpers';
 import { ICommonConfiguration, iAssetBase, TokenContractId } from '../../helpers/types';
 import { waitForTx } from '../../helpers/misc-utils';
-import { getAllAggregatorsAddresses, getAllTokenAddresses } from '../../helpers/mock-helpers';
+import { getAllTokenAddresses } from '../../helpers/mock-helpers';
 import { ConfigNames, loadPoolConfig, getQuoteCurrency } from '../../helpers/configuration';
 import {
-  getAllMockedTokens,
   getMockedTokens,
   getLendingPoolAddressesProvider,
   getPairsTokenAggregator,
@@ -31,11 +30,6 @@ task('local-dev:deploy-oracles', 'Deploy oracles for dev environment')
       OracleQuoteUnit,
     } = poolConfig as ICommonConfiguration;
 
-    console.log(
-      '🚀 ~ file: 4_oracles.ts:28 ~ .setAction ~ AllAssetsInitialPrices:',
-      AllAssetsInitialPrices
-    );
-
     const defaultTokenList: { [key: string]: string } = {
       ...Object.fromEntries(Object.keys(TokenContractId).map((symbol) => [symbol, ''])),
       USD: UsdAddress,
@@ -48,7 +42,6 @@ task('local-dev:deploy-oracles', 'Deploy oracles for dev environment')
       },
       defaultTokenList
     );
-    console.log('🚀 ~ file: 4_oracles.ts:48 ~ .setAction ~ mockTokensAddress:', mockTokensAddress);
     const filteredMockTokensAddress = Object.fromEntries(
       Object.entries(mockTokensAddress).filter(([key, value]) => value !== '')
     );
@@ -56,14 +49,6 @@ task('local-dev:deploy-oracles', 'Deploy oracles for dev environment')
       Object.entries(AllAssetsInitialPrices).filter(([key]) =>
         filteredMockTokensAddress.hasOwnProperty(key)
       )
-    );
-    console.log(
-      '🚀 ~ file: 4_oracles.ts:59 ~ .setAction ~ filteredInitialPrices:',
-      filteredInitialPrices
-    );
-    console.log(
-      '🚀 ~ file: 4_oracles.ts:51 ~ .setAction ~ filteredMockTokensAddress:',
-      filteredMockTokensAddress
     );
     const addressesProvider = await getLendingPoolAddressesProvider();
     const admin = await addressesProvider.getPoolAdmin();

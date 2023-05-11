@@ -20,6 +20,9 @@ task('local:dev', 'Deploy development enviroment')
 
     console.log('Migration started\n');
 
+    console.log('0. Deploy mock weth');
+    await DRE.run('local-dev:deploy-weth-token', { verify, pool: POOL_NAME });
+
     console.log('1. Deploy mock tokens');
     await DRE.run('local-dev:deploy-mock-tokens', { verify, pool: POOL_NAME });
 
@@ -33,7 +36,7 @@ task('local:dev', 'Deploy development enviroment')
     await DRE.run('local-dev:deploy-oracles', { verify, pool: POOL_NAME });
 
     console.log('5. Deploy WETH Gateway');
-    await DRE.run('full-deploy-weth-gateway', { verify, pool: POOL_NAME });
+    await DRE.run('local-dev-deploy-weth-gateway', { verify, pool: POOL_NAME });
 
     console.log('6. Initialize lending pool');
     await DRE.run('local-dev:initialize-lending-pool', { verify, pool: POOL_NAME });
