@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 import {
-  oneEther,
+  oneUsd,
   oneRay,
   RAY,
   ZERO_ADDRESS,
@@ -19,8 +19,8 @@ export const CommonsConfig: ICommonConfiguration = {
   VariableDebtTokenNamePrefix: 'Aave Matic Market variable debt',
   SymbolPrefix: 'm',
   ProviderId: 0, // Overriden in index.ts
-  OracleQuoteCurrency: 'ETH',
-  OracleQuoteUnit: oneEther.toString(),
+  OracleQuoteCurrency: 'USD',
+  OracleQuoteUnit: oneUsd.toString(),
   ProtocolGlobalParams: {
     TokenDistributorPercentageBase: '10000',
     MockUsdPriceInWei: '5848466240000000',
@@ -44,23 +44,17 @@ export const CommonsConfig: ICommonConfiguration = {
     WETH: {
       borrowRate: oneRay.multipliedBy(0.03).toFixed(),
     },
-    DAI: {
+    BRZ: {
       borrowRate: oneRay.multipliedBy(0.039).toFixed(),
     },
     USDC: {
       borrowRate: oneRay.multipliedBy(0.039).toFixed(),
     },
-    USDT: {
-      borrowRate: oneRay.multipliedBy(0.035).toFixed(),
-    },
-    WBTC: {
-      borrowRate: oneRay.multipliedBy(0.03).toFixed(),
+    COPM: {
+      borrowRate: oneRay.multipliedBy(0.039).toFixed(),
     },
     WMATIC: {
       borrowRate: oneRay.multipliedBy(0.05).toFixed(),
-    },
-    AAVE: {
-      borrowRate: oneRay.multipliedBy(0.03).toFixed(),
     },
   },
   // ----------------
@@ -88,19 +82,19 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   ProviderRegistry: {
     [ePolygonNetwork.mumbai]: '0xE6ef11C967898F9525D550014FDEdCFAB63536B5',
-    [ePolygonNetwork.matic]: '0x3ac4e9aa29940770aeC38fe853a4bbabb2dA9C19',
+    [ePolygonNetwork.matic]: '',
   },
   ProviderRegistryOwner: {
     [ePolygonNetwork.mumbai]: '0x943E44157dC0302a5CEb172374d1749018a00994',
-    [ePolygonNetwork.matic]: '0xD7D86236d6c463521920fCC50A9CB56f8C8Bf008',
+    [ePolygonNetwork.matic]: '',
   },
   LendingRateOracle: {
     [ePolygonNetwork.mumbai]: '0xC661e1445F9a8E5FD3C3dbCa0A0A2e8CBc79725D',
-    [ePolygonNetwork.matic]: '0x17F73aEaD876CC4059089ff815EDA37052960dFB',
+    [ePolygonNetwork.matic]: '',
   },
   LendingPoolCollateralManager: {
     [ePolygonNetwork.mumbai]: '0x2A7004B21c49253ca8DF923406Fed9a02AA86Ba0',
-    [ePolygonNetwork.matic]: '0xA39599424642D9fD35e475EF802EddF798dc555B',
+    [ePolygonNetwork.matic]: '',
   },
   TokenDistributor: {
     [ePolygonNetwork.mumbai]: '',
@@ -152,14 +146,14 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   WrappedNativeToken: {
     [ePolygonNetwork.mumbai]: '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889',
-    [ePolygonNetwork.matic]: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
+    [ePolygonNetwork.matic]: '',
   },
   ReserveFactorTreasuryAddress: {
     [ePolygonNetwork.mumbai]: ZERO_ADDRESS,
-    [ePolygonNetwork.matic]: '0x7734280A4337F37Fbf4651073Db7c28C80B339e9',
+    [ePolygonNetwork.matic]: ZERO_ADDRESS,
   },
   IncentivesController: {
     [ePolygonNetwork.mumbai]: '0xd41aE58e803Edf4304334acCE4DC4Ec34a63C644',
-    [ePolygonNetwork.matic]: '0x357D51124f59836DeD84c8a1730D72B749d8BC23',
+    [ePolygonNetwork.matic]: '',
   },
 };

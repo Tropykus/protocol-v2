@@ -61,6 +61,8 @@ task('local-dev:initialize-lending-pool', 'Initialize lending pool configuration
 
     const treasuryAddress = await getTreasuryAddress(poolConfig);
 
+    console.log('previous initReservesByHelper');
+
     await initReservesByHelper(
       ReservesConfig,
       protoPoolReservesAddresses,
@@ -74,12 +76,18 @@ task('local-dev:initialize-lending-pool', 'Initialize lending pool configuration
       pool,
       verify
     );
+
+    console.log('previous configureReservesByHelper');
+
     await configureReservesByHelper(ReservesConfig, protoPoolReservesAddresses, testHelpers, admin);
+
+    console.log('first');
 
     const collateralManager = await deployLendingPoolCollateralManager(verify);
     await waitForTx(
       await addressesProvider.setLendingPoolCollateralManager(collateralManager.address)
     );
+    console.log('second');
 
     const mockFlashLoanReceiver = await deployMockFlashLoanReceiver(
       addressesProvider.address,
@@ -90,7 +98,11 @@ task('local-dev:initialize-lending-pool', 'Initialize lending pool configuration
       mockFlashLoanReceiver.address
     );
 
+    console.log('third');
+
     await deployWalletBalancerProvider(verify);
+
+    console.log('fourth');
 
     const lendingPoolAddress = await addressesProvider.getLendingPool();
 
@@ -99,6 +111,8 @@ task('local-dev:initialize-lending-pool', 'Initialize lending pool configuration
       gateway = (await getWETHGateway()).address;
     }
     await authorizeWETHGateway(gateway, lendingPoolAddress);
+
+    console.log('fifth');
 
     const poolConfigurator = await getLendingPoolConfiguratorProxy();
     await waitForTx(await poolConfigurator.setPoolPause(false));
