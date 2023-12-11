@@ -23,6 +23,7 @@ export const SUPPORTED_ETHERSCAN_NETWORKS = [
   'goerli',
   'avalanche',
   'fuji',
+  'polygon_testnet',
 ];
 
 function delay(ms: number) {

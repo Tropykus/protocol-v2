@@ -10,6 +10,7 @@ export type eNetwork =
   | eXDaiNetwork
   | eAvalancheNetwork
   | eZKevmNetwork
+  | ePolygonPosNetwork
   | eGanacheNetwork;
 
 export enum eEthereumNetwork {
@@ -43,6 +44,11 @@ export enum eZKevmNetwork {
   zktestnet = 'zktestnet',
 }
 
+export enum ePolygonPosNetwork {
+  mainnet = 'polygon_mainnet',
+  testnet = 'polygon_testnet',
+}
+
 export enum eGanacheNetwork {
   ganache = 'ganache',
 }
@@ -67,6 +73,7 @@ export enum AavePools {
   avalanche = 'avalanche',
   zkevm = 'zkevm',
   ganache = 'ganache',
+  polygonpos = 'polygonpos',
 }
 
 export enum eContractid {
@@ -278,6 +285,7 @@ export interface iAssetBase<T> {
   WAVAX: T;
   COPM: T;
   BRZ: T;
+  WUSDM: T;
 }
 
 export type iAssetsWithoutETH<T> = Omit<iAssetBase<T>, 'ETH'>;
@@ -354,6 +362,11 @@ export type iAvalanchePoolAssets<T> = Pick<
 export type iZKevmPoolAssets<T> = Pick<iAssetsWithoutUSD<T>, 'WETH' | 'WBTC' | 'USDC'>;
 
 export type iGanachePoolAssets<T> = Pick<iAssetsWithoutUSD<T>, 'WETH' | 'WBTC' | 'USDC'>;
+
+export type iPolygonPosPoolAssets<T> = Pick<
+  iAssetsWithoutUSD<T>,
+  'COPM' | 'BRZ' | 'USDC' | 'WUSDM'
+>;
 
 export type iMultiPoolsAssets<T> = iAssetCommon<T> | iAavePoolAssets<T>;
 
@@ -450,6 +463,7 @@ export type iParamsPerNetwork<T> =
   | iXDaiParamsPerNetwork<T>
   | iAvalancheParamsPerNetwork<T>
   | iZKevmParamsPerNetwork<T>
+  | iPolygonPosParamsPerNetwork<T>
   | iGanacheParamsPerNetwork<T>;
 
 export interface iParamsPerNetworkAll<T>
@@ -487,6 +501,11 @@ export interface iZKevmParamsPerNetwork<T> {
   [eZKevmNetwork.zktestnet]: T;
 }
 
+export interface iPolygonPosParamsPerNetwork<T> {
+  [ePolygonPosNetwork.mainnet]: T;
+  [ePolygonPosNetwork.testnet]: T;
+}
+
 export interface iGanacheParamsPerNetwork<T> {
   [eGanacheNetwork.ganache]: T;
 }
@@ -498,6 +517,7 @@ export interface iParamsPerPool<T> {
   [AavePools.avalanche]: T;
   [AavePools.zkevm]: T;
   [AavePools.ganache]: T;
+  [AavePools.polygonpos]: T;
 }
 
 export interface iBasicDistributionParams {
@@ -603,6 +623,10 @@ export interface IZKevmConfiguration extends ICommonConfiguration {
 
 export interface IGanacheConfiguration extends ICommonConfiguration {
   ReservesConfig: iGanachePoolAssets<IReserveParams>;
+}
+
+export interface IPolygonPosConfiguration extends ICommonConfiguration {
+  ReservesConfig: iPolygonPosPoolAssets<IReserveParams>;
 }
 
 export interface ITokenAddress {

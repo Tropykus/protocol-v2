@@ -13,6 +13,7 @@ import AvalancheConfig from '../markets/avalanche';
 import AmmConfig from '../markets/amm';
 import ZKevmConfig from '../markets/zkevm';
 import GanacheConfig from '../markets/ganache';
+import PolygonPosConfig from '../markets/polygon-pos';
 
 import { CommonsConfig } from '../markets/aave/commons';
 import { DRE, filterMapBy } from './misc-utils';
@@ -28,6 +29,7 @@ export enum ConfigNames {
   Avalanche = 'Avalanche',
   ZKevm = 'ZKevm',
   Ganache = 'Ganache',
+  PolygonPos = 'PolygonPos',
 }
 
 export const loadPoolConfig = (configName: ConfigNames): PoolConfiguration => {
@@ -46,6 +48,8 @@ export const loadPoolConfig = (configName: ConfigNames): PoolConfiguration => {
       return ZKevmConfig;
     case ConfigNames.Ganache:
       return GanacheConfig;
+    case ConfigNames.PolygonPos:
+      return PolygonPosConfig;
     default:
       throw new Error(
         `Unsupported pool configuration: ${configName} is not one of the supported configs ${Object.values(
@@ -79,6 +83,9 @@ export const getReservesConfigByPool = (pool: AavePools): iMultiPoolsAssets<IRes
       },
       [AavePools.ganache]: {
         ...GanacheConfig.ReservesConfig,
+      },
+      [AavePools.polygonpos]: {
+        ...PolygonPosConfig.ReservesConfig,
       },
     },
     pool
@@ -152,6 +159,7 @@ export const getLendingRateOracles = (poolConfig: IBaseConfiguration) => {
   } = poolConfig;
 
   const network = process.env.FORK ? process.env.FORK : DRE.network.name;
+  console.log('🚀 ~ file: configuration.ts:162 ~ getLendingRateOracles ~ network:', network);
   return filterMapBy(LendingRateOracleRatesCommon, (key) =>
     Object.keys(ReserveAssets[network]).includes(key)
   );

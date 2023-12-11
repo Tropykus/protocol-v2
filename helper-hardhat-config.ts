@@ -6,6 +6,7 @@ import {
   ePolygonNetwork,
   eXDaiNetwork,
   eZKevmNetwork,
+  ePolygonPosNetwork,
   iParamsPerNetwork
 } from './helpers/types';
 
@@ -50,16 +51,15 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eEthereumNetwork.tenderly]: `https://rpc.tenderly.co/fork/`,
   [ePolygonNetwork.mumbai]: 'https://rpc-mumbai.maticvigil.com',
   [ePolygonNetwork.matic]:
-    // 'https://rpc-mainnet.maticvigil.com/v1/e616b9ddc7598ffae92629f8145614d55094c722',
-    'https://polygon-mainnet.g.alchemy.com/v2/6NUmfWDZw6lC3RPAphj0p_2vm7ElOn2U',
-  // [ePolygonNetwork.matic]: 'https://rpc-mainnet.matic.network',
+    `https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`,
   [eXDaiNetwork.xdai]: 'https://rpc.xdaichain.com/',
   [eAvalancheNetwork.avalanche]: 'https://api.avax.network/ext/bc/C/rpc',
   [eAvalancheNetwork.fuji]: 'https://api.avax-test.network/ext/bc/C/rpc',
   [eEthereumNetwork.goerli]: `https://eth-goerli.g.alchemy.com/v2/${ALCHEMY_KEY}`,
-  [eZKevmNetwork.zkmainnet]: 'https://zkevm-rpc.com',
-  // [eZKevmNetwork.zkmainnet]: `https://polygonzkevm-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`,
+  [eZKevmNetwork.zkmainnet]: `https://polygonzkevm-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`,
   [eZKevmNetwork.zktestnet]: 'https://rpc.public.zkevm-test.net',
+  [ePolygonPosNetwork.testnet]: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_KEY}`,
+
 };
 
 export const NETWORKS_DEFAULT_GAS: iParamsPerNetwork<number> = {

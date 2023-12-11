@@ -9,7 +9,8 @@ import {
   eNetwork,
   ePolygonNetwork,
   eXDaiNetwork,
-  eZKevmNetwork
+  eZKevmNetwork,
+  ePolygonPosNetwork
 } from './helpers/types';
 import { BUIDLEREVM_CHAINID, COVERAGE_CHAINID } from './helpers/buidler-constants';
 import {
@@ -117,6 +118,7 @@ const buidlerConfig: HardhatUserConfig = {
     tenderly: getCommonNetworkConfig(eEthereumNetwork.tenderly, 3030),
     matic: getCommonNetworkConfig(ePolygonNetwork.matic, 137),
     mumbai: getCommonNetworkConfig(ePolygonNetwork.mumbai, 80001),
+    polygon_testnet: getCommonNetworkConfig(ePolygonPosNetwork.testnet, 80001),
     xdai: getCommonNetworkConfig(eXDaiNetwork.xdai, 100),
     avalanche: getCommonNetworkConfig(eAvalancheNetwork.avalanche, 43114),
     fuji: getCommonNetworkConfig(eAvalancheNetwork.fuji, 43113),
