@@ -9,6 +9,7 @@ import {
   eNetwork,
   ePolygonNetwork,
   eXDaiNetwork,
+  eZKevmNetwork
 } from './helpers/types';
 import { BUIDLEREVM_CHAINID, COVERAGE_CHAINID } from './helpers/buidler-constants';
 import {
@@ -40,7 +41,7 @@ const UNLIMITED_BYTECODE_SIZE = process.env.UNLIMITED_BYTECODE_SIZE === 'true';
 
 // Prevent to load scripts before compilation and typechain
 if (!SKIP_LOAD) {
-  ['misc', 'migrations', 'dev', 'full', 'verifications', 'deployments', 'helpers','tropykus-dev'].forEach(
+  ['misc', 'migrations', 'dev', 'full', 'verifications', 'deployments', 'helpers', 'local-dev'].forEach(
     (folder) => {
       const tasksPath = path.join(__dirname, 'tasks', folder);
       fs.readdirSync(tasksPath)
@@ -73,11 +74,22 @@ let forkMode;
 
 const buidlerConfig: HardhatUserConfig = {
   solidity: {
-    version: '0.6.12',
-    settings: {
-      optimizer: { enabled: true, runs: 200 },
-      evmVersion: 'istanbul',
-    },
+    compilers: [
+      {
+        version: '0.6.12',
+        settings: {
+          optimizer: { enabled: true, runs: 200 },
+          evmVersion: 'istanbul',
+        }
+      },
+      {
+        version: "0.8.17",
+      },      
+      {
+        version: "0.5.16",
+      },      
+    ]
+
   },
   typechain: {
     outDir: 'types',
@@ -109,6 +121,8 @@ const buidlerConfig: HardhatUserConfig = {
     avalanche: getCommonNetworkConfig(eAvalancheNetwork.avalanche, 43114),
     fuji: getCommonNetworkConfig(eAvalancheNetwork.fuji, 43113),
     goerli: getCommonNetworkConfig(eEthereumNetwork.goerli, 5),
+    zkmainnet: getCommonNetworkConfig(eZKevmNetwork.zkmainnet, 1101),
+    zktestnet: getCommonNetworkConfig(eZKevmNetwork.zktestnet, 1442),
     hardhat: {
       hardfork: 'berlin',
       blockGasLimit: DEFAULT_BLOCK_GAS_LIMIT,
@@ -135,12 +149,13 @@ const buidlerConfig: HardhatUserConfig = {
       url: 'http://localhost:8545',
     },
     ganache: {
-      url: 'http://ganache:8545',
+      url: 'http://localhost:8545',
+      chainId: 1337,
       accounts: {
-        mnemonic: 'fox sight canyon orphan hotel grow hedgehog build bless august weather swarm',
+        mnemonic: process.env.GANACHE_MNEMONIC,
         path: "m/44'/60'/0'/0",
         initialIndex: 0,
-        count: 20,
+        count: 10,
       },
     },
   },

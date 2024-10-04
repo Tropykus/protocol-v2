@@ -528,16 +528,18 @@ export const deployMockTokens = async (config: PoolConfiguration, verify?: boole
   const configData = config.ReservesConfig;
 
   for (const tokenSymbol of Object.keys(configData)) {
-    tokens[tokenSymbol] = await deployMintableERC20(
-      [
-        tokenSymbol,
-        tokenSymbol,
-        configData[tokenSymbol as keyof iMultiPoolsAssets<IReserveParams>].reserveDecimals ||
-          defaultDecimals.toString(),
-      ],
-      verify
-    );
-    await registerContractInJsonDb(tokenSymbol.toUpperCase(), tokens[tokenSymbol]);
+    if (tokenSymbol !== 'WETH') {
+      tokens[tokenSymbol] = await deployMintableERC20(
+        [
+          tokenSymbol,
+          tokenSymbol,
+          configData[tokenSymbol as keyof iMultiPoolsAssets<IReserveParams>].reserveDecimals ||
+            defaultDecimals.toString(),
+        ],
+        verify
+      );
+      await registerContractInJsonDb(tokenSymbol.toUpperCase(), tokens[tokenSymbol]);
+    }
   }
   return tokens;
 };
@@ -575,10 +577,11 @@ export const deployWETHGateway = async (args: [tEthereumAddress], verify?: boole
 export const authorizeWETHGateway = async (
   wethGateWay: tEthereumAddress,
   lendingPool: tEthereumAddress
-) =>
-  await new WETHGatewayFactory(await getFirstSigner())
+) => {
+  return await new WETHGatewayFactory(await getFirstSigner())
     .attach(wethGateWay)
     .authorizeLendingPool(lendingPool);
+};
 
 export const deployMockStableDebtToken = async (
   args: [tEthereumAddress, tEthereumAddress, tEthereumAddress, string, string, string],
@@ -603,6 +606,12 @@ export const deployWETHMocked = async (verify?: boolean) =>
     [],
     verify
   );
+
+export const deployWETHMockedAsWETH = async (verify?: boolean) => {
+  const wethInstance = await new WETH9MockedFactory(await getFirstSigner()).deploy();
+  withSaveAndVerify(wethInstance, eContractid.WETH, [], verify);
+  return registerContractInJsonDb(eContractid.WETHMocked, wethInstance);
+};
 
 export const deployMockVariableDebtToken = async (
   args: [tEthereumAddress, tEthereumAddress, tEthereumAddress, string, string, string],

@@ -1,11 +1,15 @@
 import { task } from 'hardhat/config';
-import { deployAaveOracle, deployLendingRateOracle } from '../../helpers/contracts-deployments';
+import {
+  deployAaveOracle,
+  deployLendingRateOracle,
+  deployPriceOracle,
+} from '../../helpers/contracts-deployments';
 import {
   setInitialAssetPricesInOracle,
   deployAllMockAggregators,
   setInitialMarketRatesInRatesOracleByHelper,
 } from '../../helpers/oracles-helpers';
-import { ICommonConfiguration, iAssetBase, TokenContractId } from '../../helpers/types';
+import { ICommonConfiguration, iAssetBase, TokenContractId, eNetwork } from '../../helpers/types';
 import { waitForTx } from '../../helpers/misc-utils';
 import { getAllAggregatorsAddresses, getAllTokenAddresses } from '../../helpers/mock-helpers';
 import { ConfigNames, loadPoolConfig, getQuoteCurrency } from '../../helpers/configuration';
@@ -14,14 +18,17 @@ import {
   getLendingPoolAddressesProvider,
   getPairsTokenAggregator,
   getPriceOracle,
+  getMockedTokens,
 } from '../../helpers/contracts-getters';
 
-task('tropykus-dev:deploy-oracles', 'Deploy oracles for dev environment')
+task('dev:deploy-local-oracles', 'Deploy oracles for dev environment')
   .addFlag('verify', 'Verify contracts at Etherscan')
   .addParam('pool', `Pool name to retrieve configuration, supported: ${Object.values(ConfigNames)}`)
-  .setAction(async ({ verify, pool }, localBRE) => {
-    await localBRE.run('set-DRE');
+  .setAction(async ({ verify, pool }, DRE) => {
+    await DRE.run('set-DRE');
     const poolConfig = loadPoolConfig(pool);
+    const network = <eNetwork>DRE.network.name;
+    console.log('🚀 ~ file: 3_5_local_oracles.ts:26 ~ .setAction ~ network:', network);
     const {
       Mocks: { AllAssetsInitialPrices },
       ProtocolGlobalParams: { UsdAddress, MockUsdPriceInWei },
@@ -30,28 +37,39 @@ task('tropykus-dev:deploy-oracles', 'Deploy oracles for dev environment')
       OracleQuoteUnit,
     } = poolConfig as ICommonConfiguration;
 
+    const currentNetwork = process.env.FORK ? process.env.FORK : network;
+    const reserveAssetsKeys = Object.keys(poolConfig.ReserveAssets[currentNetwork]);
+    console.log(
+      '🚀 ~ file: 3_5_local_oracles.ts:38 ~ .setAction ~ reserveAssetsKeys:',
+      poolConfig.ReserveAssets[currentNetwork]
+    );
+    const allTokenAddresses = poolConfig.ReserveAssets[currentNetwork];
+
+    for (let key in poolConfig.Mocks.AllAssetsInitialPrices) {
+      if (!reserveAssetsKeys.includes(key)) {
+        delete poolConfig.Mocks.AllAssetsInitialPrices[key];
+      }
+    }
+
+    for (let key in poolConfig.Mocks) {
+      if (Object.keys(poolConfig.Mocks[key]).length === 0) {
+        delete poolConfig[key];
+      }
+    }
+
     const defaultTokenList: { [key: string]: string } = {
-      ...Object.fromEntries(Object.keys(TokenContractId).map((symbol) => [symbol, ''])),
+      ...allTokenAddresses,
       USD: UsdAddress,
     };
-    const mockTokens = await getAllMockedTokens();
-    const mockTokensAddress = Object.keys(mockTokens).reduce<{ [key: string]: string }>(
-      (prev, curr) => {
-        prev[curr] = mockTokens[curr].address;
-        return prev;
-      },
-      defaultTokenList
-    );
     const addressesProvider = await getLendingPoolAddressesProvider();
     const admin = await addressesProvider.getPoolAdmin();
-
-    const fallbackOracle = await getPriceOracle('0x0F9d5ED72f6691E47abe2f79B890C3C33e924092');
+    // Deploy fallback Oracle
+    const mockOracle = await deployPriceOracle();
+    const fallbackOracle = await getPriceOracle(mockOracle.address);
     await waitForTx(await fallbackOracle.setEthUsdPrice(MockUsdPriceInWei));
-    await setInitialAssetPricesInOracle(AllAssetsInitialPrices, mockTokensAddress, fallbackOracle);
+    await setInitialAssetPricesInOracle(AllAssetsInitialPrices, defaultTokenList, fallbackOracle);
 
     const mockAggregators = await deployAllMockAggregators(AllAssetsInitialPrices, verify);
-
-    const allTokenAddresses = getAllTokenAddresses(mockTokens);
 
     const [tokens, aggregators] = getPairsTokenAggregator(
       allTokenAddresses,
@@ -87,4 +105,5 @@ task('tropykus-dev:deploy-oracles', 'Deploy oracles for dev environment')
     // Register the proxy price provider on the addressesProvider
     await waitForTx(await addressesProvider.setPriceOracle(aaveOracle.address));
     await waitForTx(await addressesProvider.setLendingRateOracle(lendingRateOracle.address));
+    console.log('Local oracles deployed!!');
   });

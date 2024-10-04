@@ -3,10 +3,10 @@ import { deployWalletBalancerProvider } from '../../helpers/contracts-deployment
 
 import { getLendingPoolAddressesProvider } from '../../helpers/contracts-getters';
 
-task('tropykus-dev:wallet-balance-provider', 'Initialize lending pool configuration.')
+task('local-dev:wallet-balance-provider', 'Initialize lending pool configuration.')
   .addFlag('verify', 'Verify contracts at Etherscan')
-  .setAction(async ({ verify }, localBRE) => {
-    await localBRE.run('set-DRE');
+  .setAction(async ({ verify }, DRE) => {
+    await DRE.run('set-DRE');
 
     await deployWalletBalancerProvider(verify);
   });

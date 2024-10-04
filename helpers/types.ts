@@ -4,7 +4,13 @@ export interface SymbolMap<T> {
   [symbol: string]: T;
 }
 
-export type eNetwork = eEthereumNetwork | ePolygonNetwork | eXDaiNetwork | eAvalancheNetwork;
+export type eNetwork =
+  | eEthereumNetwork
+  | ePolygonNetwork
+  | eXDaiNetwork
+  | eAvalancheNetwork
+  | eZKevmNetwork
+  | eGanacheNetwork;
 
 export enum eEthereumNetwork {
   buidlerevm = 'buidlerevm',
@@ -32,6 +38,15 @@ export enum eAvalancheNetwork {
   fuji = 'fuji',
 }
 
+export enum eZKevmNetwork {
+  zkmainnet = 'zkmainnet',
+  zktestnet = 'zktestnet',
+}
+
+export enum eGanacheNetwork {
+  ganache = 'ganache',
+}
+
 export enum EthereumNetworkNames {
   kovan = 'kovan',
   ropsten = 'ropsten',
@@ -41,6 +56,8 @@ export enum EthereumNetworkNames {
   xdai = 'xdai',
   avalanche = 'avalanche',
   fuji = 'fuji',
+  zkmainnet = 'zkmainnet',
+  zktestnet = 'zktestnet',
 }
 
 export enum AavePools {
@@ -48,6 +65,8 @@ export enum AavePools {
   matic = 'matic',
   amm = 'amm',
   avalanche = 'avalanche',
+  zkevm = 'zkevm',
+  ganache = 'ganache',
 }
 
 export enum eContractid {
@@ -330,6 +349,10 @@ export type iAvalanchePoolAssets<T> = Pick<
   'WETH' | 'DAI' | 'USDT' | 'AAVE' | 'WBTC' | 'WAVAX' | 'USDC'
 >;
 
+export type iZKevmPoolAssets<T> = Pick<iAssetsWithoutUSD<T>, 'WETH' | 'WBTC' | 'USDC'>;
+
+export type iGanachePoolAssets<T> = Pick<iAssetsWithoutUSD<T>, 'WETH' | 'WBTC' | 'USDC'>;
+
 export type iMultiPoolsAssets<T> = iAssetCommon<T> | iAavePoolAssets<T>;
 
 export type iAavePoolTokens<T> = Omit<iAavePoolAssets<T>, 'ETH'>;
@@ -423,7 +446,9 @@ export type iParamsPerNetwork<T> =
   | iEthereumParamsPerNetwork<T>
   | iPolygonParamsPerNetwork<T>
   | iXDaiParamsPerNetwork<T>
-  | iAvalancheParamsPerNetwork<T>;
+  | iAvalancheParamsPerNetwork<T>
+  | iZKevmParamsPerNetwork<T>
+  | iGanacheParamsPerNetwork<T>;
 
 export interface iParamsPerNetworkAll<T>
   extends iEthereumParamsPerNetwork<T>,
@@ -455,11 +480,22 @@ export interface iAvalancheParamsPerNetwork<T> {
   [eAvalancheNetwork.fuji]: T;
 }
 
+export interface iZKevmParamsPerNetwork<T> {
+  [eZKevmNetwork.zkmainnet]: T;
+  [eZKevmNetwork.zktestnet]: T;
+}
+
+export interface iGanacheParamsPerNetwork<T> {
+  [eGanacheNetwork.ganache]: T;
+}
+
 export interface iParamsPerPool<T> {
   [AavePools.proto]: T;
   [AavePools.matic]: T;
   [AavePools.amm]: T;
   [AavePools.avalanche]: T;
+  [AavePools.zkevm]: T;
+  [AavePools.ganache]: T;
 }
 
 export interface iBasicDistributionParams {
@@ -557,6 +593,14 @@ export interface IXDAIConfiguration extends ICommonConfiguration {
 
 export interface IAvalancheConfiguration extends ICommonConfiguration {
   ReservesConfig: iAvalanchePoolAssets<IReserveParams>;
+}
+
+export interface IZKevmConfiguration extends ICommonConfiguration {
+  ReservesConfig: iZKevmPoolAssets<IReserveParams>;
+}
+
+export interface IGanacheConfiguration extends ICommonConfiguration {
+  ReservesConfig: iGanachePoolAssets<IReserveParams>;
 }
 
 export interface ITokenAddress {

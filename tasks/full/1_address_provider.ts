@@ -21,16 +21,20 @@ task(
     await DRE.run('set-DRE');
     const poolConfig = loadPoolConfig(pool);
     const { MarketId } = poolConfig;
+    console.log('🚀 ~ file: 1_address_provider.ts:24 ~ .setAction ~ MarketId:', MarketId);
 
     // 1. Deploy address provider and set genesis manager
     const addressesProvider = await deployLendingPoolAddressesProvider(MarketId, verify);
 
     // 2. Add to registry or setup a new one
     if (!skipRegistry) {
+      console.log('Skipping registry');
       const providerRegistryAddress = getParamPerNetwork(
         poolConfig.ProviderRegistry,
         <eNetwork>DRE.network.name
       );
+
+      console.log('Adding market registry');
 
       await DRE.run('add-market-to-registry', {
         pool,
@@ -39,6 +43,12 @@ task(
       });
     }
     // 3. Set pool admins
+    console.log('Setting pool admin');
+    console.log(
+      '🚀 ~ file: 1_address_provider.ts:55 ~ .setAction ~ DRE.network.name:',
+      DRE.network.name
+    );
+
     await waitForTx(await addressesProvider.setPoolAdmin(await getGenesisPoolAdmin(poolConfig)));
     await waitForTx(await addressesProvider.setEmergencyAdmin(await getEmergencyAdmin(poolConfig)));
 

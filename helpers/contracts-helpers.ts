@@ -19,6 +19,10 @@ import {
   iXDaiParamsPerNetwork,
   iAvalancheParamsPerNetwork,
   eAvalancheNetwork,
+  iZKevmParamsPerNetwork,
+  eZKevmNetwork,
+  iGanacheParamsPerNetwork,
+  eGanacheNetwork,
 } from './types';
 import { MintableERC20 } from '../types/MintableERC20';
 import { Artifact } from 'hardhat/types';
@@ -150,6 +154,8 @@ export const getParamPerNetwork = <T>(param: iParamsPerNetwork<T>, network: eNet
   const { matic, mumbai } = param as iPolygonParamsPerNetwork<T>;
   const { xdai } = param as iXDaiParamsPerNetwork<T>;
   const { avalanche, fuji } = param as iAvalancheParamsPerNetwork<T>;
+  const { zkmainnet, zktestnet } = param as iZKevmParamsPerNetwork<T>;
+  const { ganache } = param as iGanacheParamsPerNetwork<T>;
   if (process.env.FORK) {
     return param[process.env.FORK as eNetwork] as T;
   }
@@ -181,6 +187,12 @@ export const getParamPerNetwork = <T>(param: iParamsPerNetwork<T>, network: eNet
       return fuji;
     case eEthereumNetwork.goerli:
       return goerli;
+    case eZKevmNetwork.zkmainnet:
+      return zkmainnet;
+    case eZKevmNetwork.zktestnet:
+      return zktestnet;
+    case eGanacheNetwork.ganache:
+      return ganache;
   }
 };
 
@@ -195,7 +207,7 @@ export const getOptionalParamAddressPerNetwork = (
 };
 
 export const getParamPerPool = <T>(
-  { proto, amm, matic, avalanche }: iParamsPerPool<T>,
+  { proto, amm, matic, avalanche, zkevm, ganache }: iParamsPerPool<T>,
   pool: AavePools
 ) => {
   switch (pool) {
@@ -207,6 +219,10 @@ export const getParamPerPool = <T>(
       return matic;
     case AavePools.avalanche:
       return avalanche;
+    case AavePools.zkevm:
+      return zkevm;
+    case AavePools.ganache:
+      return ganache;
     default:
       return proto;
   }

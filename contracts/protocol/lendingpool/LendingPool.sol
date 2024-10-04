@@ -86,7 +86,7 @@ contract LendingPool is VersionedInitializable, ILendingPool, LendingPoolStorage
   function initialize(ILendingPoolAddressesProvider provider) public initializer {
     _addressesProvider = provider;
     _maxStableRateBorrowSizePercent = 2500;
-    _flashLoanPremiumTotal = 9;
+    _flashLoanPremiumTotal = 10000;
     _maxNumberOfReserves = 128;
   }
 
@@ -713,7 +713,7 @@ contract LendingPool is VersionedInitializable, ILendingPool, LendingPoolStorage
   }
 
   /**
-   * @dev Returns the fee on flash loans 
+   * @dev Returns the fee on flash loans
    */
   function FLASHLOAN_PREMIUM_TOTAL() public view returns (uint256) {
     return _flashLoanPremiumTotal;

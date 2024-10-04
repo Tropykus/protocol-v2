@@ -24,16 +24,17 @@ import {
   getAllMockedTokens,
   getLendingPoolAddressesProvider,
   getLendingPoolConfiguratorProxy,
+  getMockedTokens,
   getWETHGateway,
 } from '../../helpers/contracts-getters';
 import { insertContractAddressInDb } from '../../helpers/contracts-helpers';
 
-task('tropykus-dev:initialize-lending-pool', 'Initialize lending pool configuration.')
+task('local-dev:initialize-lending-pool', 'Initialize lending pool configuration.')
   .addFlag('verify', 'Verify contracts at Etherscan')
   .addParam('pool', `Pool name to retrieve configuration, supported: ${Object.values(ConfigNames)}`)
-  .setAction(async ({ verify, pool }, localBRE) => {
-    await localBRE.run('set-DRE');
-    const network = <eNetwork>localBRE.network.name;
+  .setAction(async ({ verify, pool }, DRE) => {
+    await DRE.run('set-DRE');
+    const network = <eNetwork>DRE.network.name;
     const poolConfig = loadPoolConfig(pool);
     const {
       ATokenNamePrefix,
@@ -43,7 +44,8 @@ task('tropykus-dev:initialize-lending-pool', 'Initialize lending pool configurat
       WethGateway,
       ReservesConfig,
     } = poolConfig;
-    const mockTokens = await getAllMockedTokens();
+    console.log('🚀 ~ file: 5_initialize.ts:46 ~ .setAction ~ poolConfig:', poolConfig);
+    const mockTokens = await getMockedTokens(poolConfig);
     const allTokenAddresses = getAllTokenAddresses(mockTokens);
 
     const addressesProvider = await getLendingPoolAddressesProvider();

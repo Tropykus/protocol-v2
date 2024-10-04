@@ -75,6 +75,15 @@ export const MOCK_CHAINLINK_AGGREGATORS_PRICES = {
   USD: '5848466240000000',
 };
 
+export const MOCK_CHAINLINK_AGGREGATORS_PRICES_USD = {
+  // Update to USD-based price feeds
+  USDC: oneUsd.multipliedBy('1.00000000').toFixed(),
+  USDT: oneUsd.multipliedBy('1.00000000').toFixed(),
+  WETH: oneUsd.multipliedBy('2000.00000000').toFixed(),
+  WBTC: oneUsd.multipliedBy('30000.00000000').toFixed(),
+  USD: oneUsd.toFixed(),
+};
+
 export const chainlinkAggregatorProxy = {
   main: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419',
   kovan: '0x9326BFA02ADD2366b30bacB125260Af641031331',

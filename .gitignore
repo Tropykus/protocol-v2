@@ -10,6 +10,8 @@ build/
 /types
 
 deployed-contracts.json
+deployed-contracts-ganache.json
+deployed-contracts-testnet.json
 
 coverage
 .coverage_artifacts
