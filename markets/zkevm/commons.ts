@@ -58,42 +58,42 @@ export const CommonsConfig: ICommonConfiguration = {
 
   // If PoolAdmin/emergencyAdmin is set, will take priority over PoolAdminIndex/emergencyAdminIndex
   PoolAdmin: {
-    [eZKevmNetwork.zkmainnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
-    [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
+    [eZKevmNetwork.zkmainnet]: '0x74d11c17f8F2F24CFF151E8601b1d9e7b1CD238F',
+    [eZKevmNetwork.zktestnet]: '0xF66a0eC93511f870329843a91B0a9Ff3D46aa9ba',
   },
   PoolAdminIndex: 0,
   EmergencyAdminIndex: 0,
   EmergencyAdmin: {
-    [eZKevmNetwork.zkmainnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
-    [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
+    [eZKevmNetwork.zkmainnet]: '0x74d11c17f8F2F24CFF151E8601b1d9e7b1CD238F',
+    [eZKevmNetwork.zktestnet]: '0xF66a0eC93511f870329843a91B0a9Ff3D46aa9ba',
   },
   ProviderRegistry: {
     [eZKevmNetwork.zkmainnet]: '0x4Dac514F520D051551372d277d1b2Fa3cF2AfdFF',
-    [eZKevmNetwork.zktestnet]: '0xff1084bA85B218564748f32868Cb2366a823772E',
+    [eZKevmNetwork.zktestnet]: '0x8782544DF3eAF8Af16072F3785D0473c46F88ab0',
   },
   ProviderRegistryOwner: {
-    [eZKevmNetwork.zkmainnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
-    [eZKevmNetwork.zktestnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
+    [eZKevmNetwork.zkmainnet]: '0x74d11c17f8F2F24CFF151E8601b1d9e7b1CD238F',
+    [eZKevmNetwork.zktestnet]: '0xF66a0eC93511f870329843a91B0a9Ff3D46aa9ba',
   },
   LendingRateOracle: {
     [eZKevmNetwork.zkmainnet]: '0xfc09e61904E2B042FE59b889FB55E2E2CAAF7799',
-    [eZKevmNetwork.zktestnet]: '0x009928E543c8B7736BAfDD819fd682e2D2920c1a',
+    [eZKevmNetwork.zktestnet]: '0x7f1727c25CF6F07222Df004d9797961b8d2fA034',
   },
   LendingPoolCollateralManager: {
     [eZKevmNetwork.zkmainnet]: '0x6c7957F5bE827F25A52C0666BF55c5a6328D6E68',
-    [eZKevmNetwork.zktestnet]: '0x6d08364738Ea9f8349520d95E9928f0917bB7CaB',
+    [eZKevmNetwork.zktestnet]: '0x70d9496532765e919625296F72A577eae4866e06',
   },
   LendingPoolConfigurator: {
     [eZKevmNetwork.zkmainnet]: '0xc43c4EE4243aC6682dA33588655FcB1B16BF6b1e',
-    [eZKevmNetwork.zktestnet]: '0x5545490E42eb7cf14CF04129A1c7213fb00dEAaB',
+    [eZKevmNetwork.zktestnet]: '0x1815720e83459A324eC604b506c799F40128a30a',
   },
   LendingPool: {
     [eZKevmNetwork.zkmainnet]: '0xB57B04F4ab792215D7CF77ED51330951143E69a8',
-    [eZKevmNetwork.zktestnet]: '0x052a450FDd174830B0f2aaa51358e3a82D73B854',
+    [eZKevmNetwork.zktestnet]: '0xDB7495195c7baab63dD5d2c3781a4B663FabF080',
   },
   WethGateway: {
     [eZKevmNetwork.zkmainnet]: '0xcEBfF8F32607eEC13b5976B14356d13Ba330aC9a',
-    [eZKevmNetwork.zktestnet]: '0x98e7a98DfD326EBd13c78789768EaDe3f2251C56',
+    [eZKevmNetwork.zktestnet]: '0x696bF56059272aAe2DACF7979F49ccb3FE584D39',
   },
   TokenDistributor: {
     [eZKevmNetwork.zkmainnet]: '',
@@ -101,7 +101,7 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   AaveOracle: {
     [eZKevmNetwork.zkmainnet]: '0xB75fB011D06651bFa1690cc458002E7B3064D12C',
-    [eZKevmNetwork.zktestnet]: '0xE10A347cf55f934Df185a628fd6Ff4F6C7B7081B',
+    [eZKevmNetwork.zktestnet]: '0xeFAE8033eb9cb2461cD29001a05a285EEF980384',
   },
   FallbackOracle: {
     [eZKevmNetwork.zkmainnet]: ZERO_ADDRESS,

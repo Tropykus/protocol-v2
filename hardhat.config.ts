@@ -155,7 +155,7 @@ const buidlerConfig: HardhatUserConfig = {
       url: 'http://localhost:8545',
       chainId: 1337,
       accounts: {
-        mnemonic: 'blanket dutch keep fantasy dentist pass mango range artwork style drive fatal',
+        mnemonic: process.env.GANACHE_MNEMONIC,
         path: "m/44'/60'/0'/0",
         initialIndex: 0,
         count: 10,

@@ -116,7 +116,7 @@ export const CommonsConfig: ICommonConfiguration = {
     [eGanacheNetwork.ganache]: '', // Official WETH
   },
   ReserveFactorTreasuryAddress: {
-    [eGanacheNetwork.ganache]: '0xDbADD95d1Bd034ad4FCd5C98BFd38669e8e75185', // Self-controlled EOA for testing
+    [eGanacheNetwork.ganache]: '0x25C31f3b362dA5f2129a824c99186b683A2e8453', // Self-controlled EOA for testing
   },
   IncentivesController: {
     [eGanacheNetwork.ganache]: ZERO_ADDRESS,
