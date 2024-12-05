@@ -123,7 +123,7 @@ task('full:initialize-lending-pool', 'Initialize lending pool configuration.')
         gateWay = (await getWETHGateway()).address;
         console.log('🚀 ~ file: 6-initialize.ts:121 ~ .setAction ~ gateWay:', gateWay);
       }
-      await authorizeWETHGateway(gateWay, lendingPoolAddress);
+      // await authorizeWETHGateway(gateWay, lendingPoolAddress);
     } catch (err) {
       console.error(err);
       exit(1);

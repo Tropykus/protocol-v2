@@ -23,12 +23,10 @@ task('full:deploy-oracles', 'Deploy oracles for dev enviroment')
   .addFlag('verify', 'Verify contracts at Etherscan')
   .addParam('pool', `Pool name to retrieve configuration, supported: ${Object.values(ConfigNames)}`)
   .setAction(async ({ verify, pool }, DRE) => {
-    console.log('🚀 ~ file: 3_oracles.ts:26 ~ .setAction ~ pool:', pool);
     try {
       await DRE.run('set-DRE');
       const network = <eNetwork>DRE.network.name;
       const poolConfig = loadPoolConfig(pool);
-      console.log('🚀 ~ file: 3_oracles.ts:30 ~ .setAction ~ poolConfig:', poolConfig);
       const {
         ProtocolGlobalParams: { UsdAddress },
         ReserveAssets,
@@ -36,45 +34,19 @@ task('full:deploy-oracles', 'Deploy oracles for dev enviroment')
         ChainlinkAggregator,
       } = poolConfig as ICommonConfiguration;
       const lendingRateOracles = getLendingRateOracles(poolConfig);
-      console.log(
-        '🚀 ~ file: 3_oracles.ts:37 ~ .setAction ~ lendingRateOracles:',
-        lendingRateOracles
-      );
       const addressesProvider = await getLendingPoolAddressesProvider();
       const admin = await getGenesisPoolAdmin(poolConfig);
-      console.log('🚀 ~ file: 3_oracles.ts:41 ~ .setAction ~ admin:', admin);
       const aaveOracleAddress = getParamPerNetwork(poolConfig.AaveOracle, network);
-      console.log(
-        '🚀 ~ file: 3_oracles.ts:43 ~ .setAction ~ aaveOracleAddress:',
-        aaveOracleAddress
-      );
+
       const lendingRateOracleAddress = getParamPerNetwork(poolConfig.LendingRateOracle, network);
-      console.log(
-        '🚀 ~ file: 3_oracles.ts:45 ~ .setAction ~ lendingRateOracleAddress:',
-        lendingRateOracleAddress
-      );
       const fallbackOracleAddress = await getParamPerNetwork(FallbackOracle, network);
-      console.log(
-        '🚀 ~ file: 3_oracles.ts:47 ~ .setAction ~ fallbackOracleAddress:',
-        fallbackOracleAddress
-      );
       const reserveAssets = await getParamPerNetwork(ReserveAssets, network);
-      console.log('🚀 ~ file: 3_oracles.ts:49 ~ .setAction ~ reserveAssets:', reserveAssets);
       const chainlinkAggregators = await getParamPerNetwork(ChainlinkAggregator, network);
-      console.log(
-        '🚀 ~ file: 3_oracles.ts:44 ~ .setAction ~ chainlinkAggregators:',
-        chainlinkAggregators
-      );
 
       const tokensToWatch: SymbolMap<string> = {
         ...reserveAssets,
         USD: UsdAddress,
       };
-      console.log('🚀 ~ file: 3_oracles.ts:46 ~ .setAction ~ tokensToWatch:', tokensToWatch);
-      console.log(
-        '🚀 ~ file: 3_oracles.ts:46 ~ .setAction ~ poolConfig.OracleQuoteCurrency',
-        poolConfig.OracleQuoteCurrency
-      );
 
       const [tokens, aggregators] = getPairsTokenAggregator(
         tokensToWatch,

@@ -57,7 +57,8 @@ export const AaveConfig: IAaveConfiguration = {
     YFI: strategyYFI,
     ZRX: strategyZRX,
     xSUSHI: strategyXSUSHI,
-    COP: strategyBUSD //TODO: Delete this
+    COPM: strategyBUSD, //TODO: Delete this
+    BRZ: strategyBUSD //TODO: Delete this
   },
   ReserveAssets: {
     [eEthereumNetwork.goerli]: {},
