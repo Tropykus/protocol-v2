@@ -12,9 +12,11 @@ build/
 deployed-contracts.json
 deployed-contracts-ganache.json
 deployed-contracts-testnet.json
+deployed-contracts.testnet.json
 
 coverage
 .coverage_artifacts
 .coverage_cache
 .coverage_contracts
 
+.DS_Store

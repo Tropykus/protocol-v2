@@ -71,8 +71,8 @@ export const CommonsConfig: ICommonConfiguration = {
     [ePolygonPosNetwork.testnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
   },
   ProviderRegistry: {
-    [ePolygonPosNetwork.mainnet]: '',
-    [ePolygonPosNetwork.testnet]: '0x5Fd6D8ad43f0744039Ea1DA2324D6eE743611d6F',
+    [ePolygonPosNetwork.mainnet]: '0xeF461D251aBC72FbD024d0AC5a7aDd5859583a31',
+    [ePolygonPosNetwork.testnet]: '0x44A26242cD1dB06992c9Bcc9b70d11d68E804787',
   },
   ProviderRegistryOwner: {
     [ePolygonPosNetwork.mainnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F',
@@ -80,19 +80,19 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   LendingRateOracle: {
     [ePolygonPosNetwork.mainnet]: '',
-    [ePolygonPosNetwork.testnet]: '0x19EdC3fC1672F49E31232af969a0C1257137aA1d',
+    [ePolygonPosNetwork.testnet]: '',
   },
   LendingPoolCollateralManager: {
     [ePolygonPosNetwork.mainnet]: '',
     [ePolygonPosNetwork.testnet]: '',
   },
   LendingPoolConfigurator: {
-    [ePolygonPosNetwork.mainnet]: '',
-    [ePolygonPosNetwork.testnet]: '0xe2feEB53521287F95f0d923F321f46878992b2b1',
+    [ePolygonPosNetwork.mainnet]: '0x52d61A9663754bb6584a84C7c98d899628515727',
+    [ePolygonPosNetwork.testnet]: '',
   },
   LendingPool: {
-    [ePolygonPosNetwork.mainnet]: '',
-    [ePolygonPosNetwork.testnet]: '0x1777c7c15c1A91CaF9f2d0b39Ebe97EA2BDC5973',
+    [ePolygonPosNetwork.mainnet]: '0xda828519Ef888db5818cf544D453890f19E78254',
+    [ePolygonPosNetwork.testnet]: '',
   },
   WethGateway: {
     [ePolygonPosNetwork.mainnet]: '',
@@ -104,7 +104,7 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   AaveOracle: {
     [ePolygonPosNetwork.mainnet]: '',
-    [ePolygonPosNetwork.testnet]: '0x25716D8a987A6C1FAc511323b8D6Dae2ccE16e59',
+    [ePolygonPosNetwork.testnet]: '',
   },
   FallbackOracle: {
     [ePolygonPosNetwork.mainnet]: ZERO_ADDRESS,
@@ -112,18 +112,20 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   ChainlinkAggregator: {
     [ePolygonPosNetwork.mainnet]: {
-      WETH: '0x9660310567bfE9c7555E5FBdbB8DD30518983C08',
-      USDC: '0xBB08684ad198410A19Cfa8f80B90F0Ae99323A76',
-      WBTC: '0xEc36899D4Cd6f72ba610aF6AC3B60ed1e954124a',
+      COPM: '0xfAA9147190c2C2cc5B8387B4f49016bDB3380572',
+      USDC: '0xfE4A8cc5b5B2366C1B58Bea3858e81843581b2F7',
+      BRZ: '0xB90DA3ff54C3ED09115abf6FbA0Ff4645586af2c',
+      USD: '0xfE4A8cc5b5B2366C1B58Bea3858e81843581b2F7',
+      //TODO: Update WUSDM
+      WUSDM: '0xfE4A8cc5b5B2366C1B58Bea3858e81843581b2F7',
     },
     //Already on testnet
     [ePolygonPosNetwork.testnet]: {
-      COPM: '0x63B397fb7aBD9B583849e52A71658d1F81E2B5f5',
-      USDC: '0x40457Ee788F1562966ce7482d8534DFA1a919f38',
-      BRZ: '0x2445C42bD8B321205A3CE4d8f45106103757c571',
-      USD: '0x40457Ee788F1562966ce7482d8534DFA1a919f38',
-      //TODO: Update WUSDM
-      WUSDM: '0x40457Ee788F1562966ce7482d8534DFA1a919f38',
+      COPM: '0xF7c0a301A5B5b390f5D123e037873C09b4Ae7A8a',
+      USDC: '0xcb5964e566c1F54324466E7B2E2A13012D1dc224',
+      BRZ: '0x70A041b331Ce5150951a2732f7E90a5Bb76ae133',
+      USD: '0xcb5964e566c1F54324466E7B2E2A13012D1dc224',
+      WUSDM: '0xcb5964e566c1F54324466E7B2E2A13012D1dc224',
     },
   },
   ReserveAssets: {
@@ -137,18 +139,18 @@ export const CommonsConfig: ICommonConfiguration = {
   },
   WETH: {
     [ePolygonPosNetwork.mainnet]: '',
-    [ePolygonPosNetwork.testnet]: '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889',
+    [ePolygonPosNetwork.testnet]: '0x778F1B662a461695633791D03A77D992c24B588A',
   },
   WrappedNativeToken: {
     [ePolygonPosNetwork.mainnet]: '0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9', // Official WETH
-    [ePolygonPosNetwork.testnet]: '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889', // Official WETH
+    [ePolygonPosNetwork.testnet]: '0x778F1B662a461695633791D03A77D992c24B588A', // Official WETH
   },
   ReserveFactorTreasuryAddress: {
-    [ePolygonPosNetwork.mainnet]: '0x74d11c17f8F2F24CFF151E8601b1d9e7b1CD238F', // Multisig
+    [ePolygonPosNetwork.mainnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F', // Multisig
     [ePolygonPosNetwork.testnet]: '0x53Ec0aF115619c536480C95Dec4a065e27E6419F', // Self-controlled EOA for testing
   },
   IncentivesController: {
     [ePolygonPosNetwork.mainnet]: ZERO_ADDRESS,
-    [ePolygonPosNetwork.testnet]: ZERO_ADDRESS,
+    [ePolygonPosNetwork.testnet]: "0x0db5F7274cfE927d67417C6E87cC39E8aF696109",
   },
 };

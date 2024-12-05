@@ -88,7 +88,7 @@ const buidlerConfig: HardhatUserConfig = {
       },      
       {
         version: "0.5.16",
-      },      
+      },
     ]
 
   },
@@ -118,7 +118,8 @@ const buidlerConfig: HardhatUserConfig = {
     tenderly: getCommonNetworkConfig(eEthereumNetwork.tenderly, 3030),
     matic: getCommonNetworkConfig(ePolygonNetwork.matic, 137),
     mumbai: getCommonNetworkConfig(ePolygonNetwork.mumbai, 80001),
-    polygon_testnet: getCommonNetworkConfig(ePolygonPosNetwork.testnet, 80001),
+    polygon_testnet: getCommonNetworkConfig(ePolygonPosNetwork.testnet, 80002),
+    polygon_mainnet: getCommonNetworkConfig(ePolygonPosNetwork.mainnet, 137),
     xdai: getCommonNetworkConfig(eXDaiNetwork.xdai, 100),
     avalanche: getCommonNetworkConfig(eAvalancheNetwork.avalanche, 43114),
     fuji: getCommonNetworkConfig(eAvalancheNetwork.fuji, 43113),

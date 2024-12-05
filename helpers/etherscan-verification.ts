@@ -24,6 +24,7 @@ export const SUPPORTED_ETHERSCAN_NETWORKS = [
   'avalanche',
   'fuji',
   'polygon_testnet',
+  'polygon_mainnet',
 ];
 
 function delay(ms: number) {

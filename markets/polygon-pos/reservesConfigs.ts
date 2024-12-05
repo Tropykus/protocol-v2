@@ -1,6 +1,6 @@
 import { eContractid, IReserveParams } from '../../helpers/types';
 
-import { rateStrategyStableOne, rateStrategyVolatileOne } from './rateStrategies';
+import { rateStrategyStableOne, rateStrategyCOPM } from './rateStrategies';
 
 export const strategyUSDC: IReserveParams = {
   strategy: rateStrategyStableOne,
@@ -8,7 +8,7 @@ export const strategyUSDC: IReserveParams = {
   liquidationThreshold: '9000',
   liquidationBonus: '10500',
   borrowingEnabled: true,
-  stableBorrowRateEnabled: true,
+  stableBorrowRateEnabled: false,
   reserveDecimals: '6',
   aTokenImpl: eContractid.AToken,
   reserveFactor: '1400',
@@ -20,19 +20,19 @@ export const strategyWUSDM: IReserveParams = {
   liquidationThreshold: '9000',
   liquidationBonus: '10500',
   borrowingEnabled: true,
-  stableBorrowRateEnabled: true,
+  stableBorrowRateEnabled: false,
   reserveDecimals: '18',
   aTokenImpl: eContractid.AToken,
   reserveFactor: '1400',
 };
 
 export const strategyCOPM: IReserveParams = {
-  strategy: rateStrategyStableOne,
-  baseLTVAsCollateral: '8000',
+  strategy: rateStrategyCOPM,
+  baseLTVAsCollateral: '0000',
   liquidationThreshold: '9000',
   liquidationBonus: '10500',
   borrowingEnabled: true,
-  stableBorrowRateEnabled: true,
+  stableBorrowRateEnabled: false,
   reserveDecimals: '18',
   aTokenImpl: eContractid.AToken,
   reserveFactor: '1400',
@@ -44,7 +44,7 @@ export const strategyBRZ: IReserveParams = {
   liquidationThreshold: '9000',
   liquidationBonus: '10500',
   borrowingEnabled: true,
-  stableBorrowRateEnabled: true,
+  stableBorrowRateEnabled: false,
   reserveDecimals: '18',
   aTokenImpl: eContractid.AToken,
   reserveFactor: '1400',

@@ -58,7 +58,8 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eEthereumNetwork.goerli]: `https://eth-goerli.g.alchemy.com/v2/${ALCHEMY_KEY}`,
   [eZKevmNetwork.zkmainnet]: `https://polygonzkevm-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`,
   [eZKevmNetwork.zktestnet]: 'https://rpc.public.zkevm-test.net',
-  [ePolygonPosNetwork.testnet]: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_KEY}`,
+  [ePolygonPosNetwork.testnet]: `https://polygon-amoy.g.alchemy.com/v2/${ALCHEMY_KEY}`,
+  [ePolygonPosNetwork.mainnet]: `https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_KEY}`,
 
 };
 
@@ -72,6 +73,8 @@ export const NETWORKS_DEFAULT_GAS: iParamsPerNetwork<number> = {
   [eEthereumNetwork.tenderly]: 1 * GWEI,
   [ePolygonNetwork.mumbai]: 35 * GWEI,
   [ePolygonNetwork.matic]: 35 * GWEI,
+  [ePolygonPosNetwork.testnet]: 35 * GWEI,
+  [ePolygonPosNetwork.mainnet]: 50 * GWEI,
   [eXDaiNetwork.xdai]: 1 * GWEI,
   [eAvalancheNetwork.avalanche]: 225 * GWEI,
   [eAvalancheNetwork.fuji]: 85 * GWEI,

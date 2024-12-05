@@ -28,7 +28,7 @@ task(
 
     // 2. Add to registry or setup a new one
     if (!skipRegistry) {
-      console.log('Skipping registry');
+      console.log('Adding registry');
       const providerRegistryAddress = getParamPerNetwork(
         poolConfig.ProviderRegistry,
         <eNetwork>DRE.network.name
